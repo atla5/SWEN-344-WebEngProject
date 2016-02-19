@@ -1,7 +1,7 @@
 # SWEN-344-WebEngProject
 WebEngineeringProject Group 4's class project for SWEN.344.01 - Spring 201
 
-Contributers: Aidan Sawyer, Richard Jester, ... 
+Contributers: Aidan Sawyer, Richard Jester, Eric Yoon, Dylan Hogue... 
 
 --------------------------
 
