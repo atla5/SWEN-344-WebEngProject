@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'static_pages/page2'
+
+  get '/auth/:provider/callback', to: 'sessions#create'
   resources :widgets
 
   # The priority is based upon order of creation: first created -> highest priority.
