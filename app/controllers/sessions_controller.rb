@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
   def show
     if session['access_token'] && session['access_token_secret']
       @user = client.user(include_entities: true)
+      @tweets = client.user_timeline[0..4]
     else
       redirect_to failure_path
     end

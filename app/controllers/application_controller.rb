@@ -13,7 +13,4 @@ private
     end
   end
   
-  def tweets
-    @tweets = client.home_timeline[0..4]
-  end
 end
