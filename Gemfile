@@ -33,6 +33,8 @@ gem 'spring',        group: :development
 gem 'puma'
 #Twitter api interface
 gem 'twitter'
+#authentication gem
+gem 'omniauth-twitter'
 #API for weather data
 gem 'rubyweather'
 #Library for accessing stocks data
