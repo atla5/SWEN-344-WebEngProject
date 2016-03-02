@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  
 private
 
   def client
@@ -12,5 +11,9 @@ private
       config.access_token = session['access_token']
       config.access_token_secret = session['access_token_secret']
     end
+  end
+  
+  def tweets
+    @tweets = client.home_timeline[0..4]
   end
 end

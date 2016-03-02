@@ -8,10 +8,16 @@ class SessionsController < ApplicationController
 
   def show
     if session['access_token'] && session['access_token_secret']
-      @user = client.user(include_entities: true)
+      @user = @client.user
     else
       redirect_to failure_path
     end
+  end
+  
+  def write_tweet
+    @tweet = params[:tweet]
+    @client.update(@tweet)
+    redirect_to show_path
   end
 
   def error
