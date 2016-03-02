@@ -3,9 +3,10 @@
     <ul>
         <% @tweets.each do |tweet| %>
             <li><%= link_to tweet.text, "https://www.twitter.com/#{tweet.user.screen_name}" %></li>
+        <% end %>
     </ul>
 </section>
-<%= form_tag(action: "write_tweet") do%>
+<%= form_tag(:action => "write_tweet") do %>
     <p>New Tweet</p>
     <%=f.text_field_tag("tweet", "New Tweet") %>
     <%= submit_tag("Tweet") %>
