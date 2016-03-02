@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   get 'static_pages/page2'
 
   get '/auth/:provider/callback', to: 'sessions#create'
+  get '/auth/twitter/callback', to: 'sessions#create', as: 'callback'
+  get '/auth/failure', to: 'sessions#error', as: 'failure'
+  get '/profile', to: 'sessions#show', as: 'show'
+  delete '/signout', to: 'sessions#destroy', as: 'signout'
   resources :widgets
 
   # The priority is based upon order of creation: first created -> highest priority.
