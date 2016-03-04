@@ -23,7 +23,10 @@
             <% end %>
     </div>
     <div class="col-md-3">
-        <h2>Insert Weather Stuff</h2>
+        <h3><%= @forecast.location_name %> current conditions:</h3>
+        
+        <p>Temperature <%=@forecast.current.temperature %></p>
+        <p>Wind Speed <%=@forecast.current.wind.speed %> </p>
     </div>
 </div>
 

@@ -13,4 +13,8 @@ private
     end
   end
   
+  def weather
+    @weather ||= Weather::Service.new
+  end
+  
 end
