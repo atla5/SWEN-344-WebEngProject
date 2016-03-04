@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     if session['access_token'] && session['access_token_secret']
       @user = client.user(include_entities: true)
       @tweets = client.home_timeline[0..10]
-      @forecast = weather.fetch_forecast("USNY1232", 1)
+      @forecast = weather.fetch_forecast("CAXX0504", 5)
     else
       redirect_to failure_path
     end

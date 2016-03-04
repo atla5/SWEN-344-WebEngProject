@@ -19,6 +19,8 @@ private
   
   def weather
     @weather = Weather::Service.new
+    @weather.partner_id = <b>123456</b>
+    @weather.license_key = <b>abcdefg</b>
   end
 
   
