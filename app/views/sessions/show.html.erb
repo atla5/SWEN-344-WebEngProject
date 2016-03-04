@@ -6,13 +6,13 @@
         <h2>Welcome <%= @user.name%>!</h2>
         <h3>Tweets: <%=@user.tweets_count %> Followers: <%=@user.followers_count %></h3>
             <% @tweets.each do |tweet| %>
-            <div class="tweetbox row">
+            <div id="tweetbox" class="row">
     			<div class="col-xs-1">
     				<img src="<%=tweet.user.profile_image_uri_https %>"/>
     			</div>
     			<div class="col-xs-11">
     				<strong><%= tweet.user.screen_name %></strong> @handle
-    				<p><%= link_to tweet.text, "https://www.twitter.com/#{tweet.user.screen_name}" %></p>
+    				<p><%= link_to tweet.text, "https://www.twitter.com/#{tweet.user.screen_name}/status/#{tweet.id}" %></p>
     			</div>
 		    </div>
             <% end %>
