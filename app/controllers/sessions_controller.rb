@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
     end
   end
   
-  def write_tweet
+  def writetweet
     if session['access_token'] && session['access_token_secret']
       @tweet = params[:tweet]
       client.update(@tweet)

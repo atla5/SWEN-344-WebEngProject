@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/auth/failure', to: 'sessions#error', as: 'failure'
   get '/profile', to: 'sessions#show', as: 'show'
   delete '/signout', to: 'sessions#destroy', as: 'signout'
-  post '/write_tweet', to: 'sessions#write_tweet', as 'write_tweet'
+  post '/writetweet', to: 'sessions#writetweet', as: 'write_tweet'
   resources :widgets
 
   # The priority is based upon order of creation: first created -> highest priority.
