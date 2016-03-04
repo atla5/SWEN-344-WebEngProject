@@ -15,11 +15,16 @@
       <a class="navbar-brand" href="#">Twitter Stocks</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="navbar-right">
+      <li>
         <a href="#"><span class="glyphicon glyphicon-calendar"></span>Calendar</a>
       </li>
-      <li class="navbar-right">
+      <li>
         <a href="#"><span class="glyphicon glyphicon-stats"></span>Stocks</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="navbar-right">
+        <%= link_to "Logout", signout_path %>
       </li>
     </ul>
   </div>

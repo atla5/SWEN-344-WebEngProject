@@ -3,7 +3,7 @@
         <h2>Insert top 5 stocks here!</h2>
     </div>
     <div class="col-md-6">
-        <h2>Logged in as <%= @user.name%></h2>
+        <h2>Welcome <%= @user.name%>!</h2>
         <ul>
             <% @tweets.each do |tweet| %>
                 <li><%= link_to tweet.text, "https://www.twitter.com/#{tweet.user.screen_name}" %></li>
