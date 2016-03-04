@@ -1,5 +1,5 @@
-require_gem 'rubyweather'
-require 'weather/service'
+require 'rubygems'
+require 'rubyweather'
 
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
