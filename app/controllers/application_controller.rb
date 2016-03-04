@@ -13,4 +13,8 @@ private
   end
   end
   
+  def weather
+    @weather = YahooWeather::Client.new
+  end
+  
 end

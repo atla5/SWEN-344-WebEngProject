@@ -36,7 +36,7 @@ gem 'twitter'
 #authentication gem
 gem 'omniauth-twitter'
 #API for weather data
-gem 'rubyweather'
+gem 'yahoo-weather'
 #Library for accessing stocks data
 gem 'yahoofinance'
 #For setting and reading ENV variables using config/application.yml
