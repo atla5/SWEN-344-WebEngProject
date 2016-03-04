@@ -22,6 +22,7 @@ class SessionsController < ApplicationController
       redirect_to show_path
     else
       redirect_to failure_path
+    end
   end
 
   def error
