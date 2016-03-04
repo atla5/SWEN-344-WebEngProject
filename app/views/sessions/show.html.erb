@@ -4,11 +4,18 @@
     </div>
     <div class="col-md-6">
         <h2>Welcome <%= @user.name%>!</h2>
-        <ul>
+        <h3>Tweets: <%=@user.tweets_count %> Followers: <%=@user.followers_count %></h3>
             <% @tweets.each do |tweet| %>
-                <li><%= link_to tweet.text, "https://www.twitter.com/#{tweet.user.screen_name}" %></li>
+            <div class="tweetbox row">
+    			<div class="col-xs-1">
+    				<img src="<%=tweet.user.profile_image_uri_https %>"/>
+    			</div>
+    			<div class="col-xs-11">
+    				<strong><%= tweet.user.screen_name %></strong> @handle
+    				<p><%= link_to tweet.text, "https://www.twitter.com/#{tweet.user.screen_name}" %></p>
+    			</div>
+		    </div>
             <% end %>
-        </ul>
     </div>
     <div class="col-md-3">
         <h2>Insert Weather Stuff</h2>
