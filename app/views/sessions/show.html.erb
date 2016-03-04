@@ -6,7 +6,7 @@
         <h2>Welcome <%= @user.name%>!</h2>
         <%= form_tag(:action => "writetweet", method: "post") do %>
             <p>New Tweet</p>
-            <%=f.text_field_tag("tweet", "New Tweet") %>
+            <%= text_field_tag("tweet", "New Tweet") %>
             <%= submit_tag("Tweet") %>
         <% end %>
         <h3>Tweets: <%=@user.tweets_count %> Followers: <%=@user.followers_count %></h3>
