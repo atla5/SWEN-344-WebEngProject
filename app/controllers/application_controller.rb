@@ -1,4 +1,3 @@
-require 'portlet_controller'
 require_gem 'rubyweather'
 require 'weather/service'
 
