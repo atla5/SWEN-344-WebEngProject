@@ -4,8 +4,7 @@ class WeatherController < ApplicationController
   require 'Adaptors/WeatherAdaptor'
 
   def current
-    response = WeatherAdaptor::getCurrentWeather("Rochester", "NY")
-    
+   @current = WeatherAdaptor::getCurrentWeather("Rochester", "NY") 
   end
 
   def forcast

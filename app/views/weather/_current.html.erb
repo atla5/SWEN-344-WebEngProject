@@ -1,15 +1,13 @@
 <div style="font-size: medium; font-weight: bold; margin-bottom: 0px;">
-    London
+    <%= @current.name %>
 </div>
 <div style="float: left; width: 130px;">
     <div style="display: block; clear: left;">
         <div title="Titel" style="float: left;">
-
-        <img style="border: medium none; width: 45px; height: 45px; background: url(&quot;http://openweathermap.org/img/w/10n.png&quot;) repeat scroll 0% 0% transparent;" alt="title" src="http://openweathermap.org/images/transparent.png" height="45" width="45"></img>
+        <img style="border: medium none; width: 45px; height: 45px; background: url(&quot;http://openweathermap.org/img/w/<%= @current.weather.icon %>&quot;) repeat scroll 0% 0% transparent;" alt="title" src="http://openweathermap.org/images/transparent.png" height="45" width="45"></img>
         </div>
         <div style="float: left;">
             <div title="Current Temperature" style="display: block; clear: left; font-size: medium; font-weight: bold; padding: 0pt 3pt;">
-                5.26°C
             </div>
             <div style="display: block; width: 85px; overflow: visible;"></div>
         </div>

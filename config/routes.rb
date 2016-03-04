@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'weather/current'
+
+  get 'weather/forcast'
+
   get 'static_pages/page2'
 
   get '/auth/:provider/callback', to: 'sessions#create'
