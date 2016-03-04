@@ -1,7 +1,3 @@
-require 'rubygems'
-gem 'rubyweather'
-
-require 'weather/service'
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -16,10 +12,5 @@ private
       config.access_token_secret = session['access_token_secret']
   end
   end
-  
-  def weather
-    @weather = Weather::Service.new
-  end
-
   
 end

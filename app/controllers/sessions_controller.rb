@@ -1,3 +1,7 @@
+require 'rubygems'
+gem 'rubyweather'
+
+require 'weather/service'
 class SessionsController < ApplicationController
   def create
     credentials = request.env['omniauth.auth']['credentials']
@@ -10,6 +14,7 @@ class SessionsController < ApplicationController
     if session['access_token'] && session['access_token_secret']
       @user = client.user(include_entities: true)
       @tweets = client.home_timeline[0..10]
+      weather = Weather::Service.new
       @forecast = weather.fetch_forecast("CAXX0504", 5)
     else
       redirect_to failure_path
