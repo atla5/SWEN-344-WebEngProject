@@ -1,19 +1,28 @@
 Rails.application.routes.draw do
-  get 'static_pages/page2'
-
-  get '/auth/:provider/callback', to: 'sessions#create'
-  get '/auth/twitter/callback', to: 'sessions#create', as: 'callback'
-  get '/auth/failure', to: 'sessions#error', as: 'failure'
+    
+  ## -- main pages -- ##
   get '/profile', to: 'sessions#show', as: 'show'
   delete '/signout', to: 'sessions#destroy', as: 'signout'
   resources :widgets
+  
+  ## -- STOCKS -- ##
+  
+  
+  ## -- CALENDAR --##
+
+
+  ## -- TWITTER -- ##
+  get '/auth/:provider/callback', to: 'sessions#create'
+  get '/auth/twitter/callback', to: 'sessions#create', as: 'callback'
+  get '/auth/failure', to: 'sessions#error', as: 'failure'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-
   root 'welcome#index'
+  root_path = root
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
