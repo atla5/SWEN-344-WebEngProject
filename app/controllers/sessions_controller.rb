@@ -16,9 +16,12 @@ class SessionsController < ApplicationController
   end
   
   def write_tweet
-    @tweet = params[:tweet]
-    client.update(@tweet)
-    redirect_to show_path
+    if session['access_token'] && session['access_token_secret']
+      @tweet = params[:tweet]
+      client.update(@tweet)
+      redirect_to show_path
+    else
+      redirect_to failure_path
   end
 
   def error
