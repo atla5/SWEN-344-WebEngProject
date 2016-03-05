@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
     
   ## -- main pages -- ##
   get '/profile', to: 'sessions#show', as: 'show'
@@ -9,13 +10,22 @@ Rails.application.routes.draw do
   
   
   ## -- CALENDAR --##
+=======
+>>>>>>> 84de7ddd3d332ab8a39f94898c9a6b352372306f
 
 
   ## -- TWITTER -- ##
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/auth/twitter/callback', to: 'sessions#create', as: 'callback'
   get '/auth/failure', to: 'sessions#error', as: 'failure'
+<<<<<<< HEAD
 
+=======
+  get '/profile', to: 'sessions#show', as: 'show'
+  delete '/signout', to: 'sessions#destroy', as: 'signout'
+  post '/writetweet', to: 'sessions#writetweet', as: 'write_tweet'
+  resources :widgets
+>>>>>>> 84de7ddd3d332ab8a39f94898c9a6b352372306f
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

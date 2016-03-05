@@ -1,7 +1,7 @@
 
 #accessible gem object used to access main functions
 def simple_cal 
-    
+    print("create referenceable object");
 end
 
 # -- initialization -- #

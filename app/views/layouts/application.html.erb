@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Twitter stocks</title>
+  <title>Twitter Stocks</title>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag  '//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -15,6 +15,7 @@
       <a class="navbar-brand" href="#">Twitter Stocks</a>
     </div>
     <ul class="nav navbar-nav">
+<<<<<<< HEAD
       <li class="active">
         <a href="/"><span class="glyphicon glyphicon-home"></span>Home</a>
       </li>
@@ -40,9 +41,18 @@
           </ul>
       <li class="navbar-right">
         <a href="#"><span class="glyphicon glyphicon-calendar"></span>Calendar</a>
+=======
+      <li>
+        <a href="#"><span class="glyphicon glyphicon-calendar"></span> Calendar</a>
       </li>
+      <li>
+        <a href="#"><span class="glyphicon glyphicon-stats"></span> Stocks</a>
+>>>>>>> 84de7ddd3d332ab8a39f94898c9a6b352372306f
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
       <li class="navbar-right">
-        <a href="#"><span class="glyphicon glyphicon-stats"></span>Stocks</a>
+        <%= link_to "Logout", signout_path, method: :delete %>
       </li>
     </ul>
   </div>
