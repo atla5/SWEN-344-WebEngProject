@@ -39,7 +39,7 @@ gem 'omniauth-twitter'
 gem 'weather-api'
 gem 'open-weather'
 #Library for accessing stocks data
-gem 'yahoofinance'
+gem 'yahoo-finance'
 #For setting and reading ENV variables using config/application.yml
 gem 'figaro'
 # Use Capistrano for deployment
