@@ -1,10 +1,20 @@
 Rails.application.routes.draw do
 
+  ## -- main pages -- ##
+  get '/profile', to: 'sessions#show', as: 'show'
+  delete '/signout', to: 'sessions#destroy', as: 'signout'
+  resources :widgets
+  
+  ## -- STOCKS -- ##
+  
+  
+  ## -- CALENDAR --##
+  get '/calendar', to: 'calendar#calendar', as: 'calendar'
+
+  ## -- TWITTER -- ##
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/auth/twitter/callback', to: 'sessions#create', as: 'callback'
   get '/auth/failure', to: 'sessions#error', as: 'failure'
-  get '/profile', to: 'sessions#show', as: 'show'
-  delete '/signout', to: 'sessions#destroy', as: 'signout'
   post '/writetweet', to: 'sessions#writetweet', as: 'write_tweet'
   resources :widgets
 
@@ -12,7 +22,6 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-
   root 'welcome#index'
 
   # Example of regular route:
