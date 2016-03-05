@@ -7,27 +7,4 @@
     <p>Please sign in with your Twitter account to start using the app</p>
     <a type="button" class="btn btn-lg btn-default" href="http://fierce-lowlands-94356.herokuapp.com/auth/twitter"><span class="glyphicon glyphicon-flash"></span>Sign in with Twitter</a>
   </div>
-  <div>
-    <div style="font-size: medium; font-weight: bold; margin-bottom: 0px;">
-    <%= @current["name"] %>
-    </div>
-    <div style="float: left; width: 130px">
-    <div style="display: block; clear: left;">
-      <div style="float: left;" title="Titel">
-        <img style="border: medium none; width: 45px; height: 45px; background: url(&quot;http://openweathermap.org/img/w/<%= @current["weather"][0]["icon"].to_s %>.png&quot;) repeat scroll 0% 0% transparent;" alt="title" src="http://openweathermap.org/images/transparent.png" height="45" width="45">
-      </div>
-      <div style="float: left;">
-        <div style="display: block; clear: left; font-size: medium; font-weight: bold; padding: 0pt 3pt;" title="Current Temperature"><%= @current["main"]["temp"] %> °F
-        </div>
-        <div style="display: block; width: 85px; overflow: visible;"></div>
-      </div>
-    </div>
-    <div style="display: block; clear: left; font-size: small;">Low: <%= @current["main"]["temp_min"] %>°F</div>
-    <div style="display: block; clear: left; font-size: small;">High: <%= @current["main"]["temp_max"] %>°F</div> 
-    <div style="display: block; clear: left; font-size: small;">Clouds: <%= @current["clouds"]["all"] %>%</div>
-    <div style="display: block; clear: left; color: gray; font-size: x-small;">Humidity: <%= @current["main"]["humidity"] %>%</div>
-    <div style="display: block; clear: left; color: gray; font-size: x-small;">Wind: <%= @current["wind"]["speed"] %> m/h</div>
-    <div style="display: block; clear: left; color: gray; font-size: x-small;">Pressure: <%= @current["main"]["pressure"] %>hpa</div>
-  </div>
-  </div>
 </div>
