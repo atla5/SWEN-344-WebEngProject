@@ -12,11 +12,11 @@
 <nav class="navbar navbar-default navbar-static-top navbar-inverse">
   <div class="container">
     <div class="navbar-header">
-      <%=link_to 'Twitter Stocks', show_path%>
+      <%=link_to('Twitter Stocks', show_path, html_options={class: "navbar-brand"})%>
     </div>
     <ul class="nav navbar-nav">
       <li>
-        <a href="#"><span class="glyphicon glyphicon-calendar"></span> Calendar</a>
+        <span class="glyphicon glyphicon-calendar"></span><%=link_to(name=" Calendar", calendar_path,) %>
       </li>
       <li>
         <a href="#"><span class="glyphicon glyphicon-stats"></span> Stocks</a>
