@@ -10,7 +10,7 @@ private
       config.consumer_secret = ENV['CONSUMER_SECRET']
       config.access_token = session['access_token']
       config.access_token_secret = session['access_token_secret']
-    end
+  end
   end
   
 end

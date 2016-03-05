@@ -3,17 +3,47 @@
         <h2>Insert top 5 stocks here!</h2>
     </div>
     <div class="col-md-6">
-        <h2>Logged in as <%= @user.name%></h2>
-        <ul>
+        <h2>Welcome <%= @user.name%>!</h2>
+        <h3>Tweets: <%=@user.tweets_count %> Followers: <%=@user.followers_count %></h3>
+        <%= form_tag(:action => "writetweet", method: "post") do %>
+            <%= text_area_tag(name="tweet",content=nil, options = {size: "60x3", maxlength: 140, placeholder: "What's happening?"}) %>
+            <br>
+            <%= submit_tag("Tweet") %>
+        <% end %>
             <% @tweets.each do |tweet| %>
-                <li><%= link_to tweet.text, "https://www.twitter.com/#{tweet.user.screen_name}" %></li>
+            <div id="tweetbox" class="row wordwrap">
+    			<div class="col-xs-1">
+    				<img src="<%=tweet.user.profile_image_uri_https %>"/>
+    			</div>
+    			<div class="col-xs-11">
+    				<strong><%= tweet.user.name %></strong> @<%= tweet.user.screen_name %>
+    				<p><%= link_to tweet.text, "https://www.twitter.com/#{tweet.user.screen_name}/status/#{tweet.id}" %></p>
+    			</div>
+		    </div>
             <% end %>
-        </ul>
     </div>
     <div class="col-md-3">
-        <h2>Insert Weather Stuff</h2>
+      <div style="font-size: medium; font-weight: bold; margin-bottom: 0px;">
+        <%= @current["name"] %>
+      </div>
+      <div style="float: left; width: 130px">
+        <div style="display: block; clear: left;">
+          <div style="float: left;" title="Titel">
+            <img style="border: medium none; width: 45px; height: 45px; background: url(&quot;http://openweathermap.org/img/w/<%= @current["weather"][0]["icon"].to_s %>.png&quot;) repeat scroll 0% 0% transparent;" alt="title" src="http://openweathermap.org/images/transparent.png" height="45" width="45">
+          </div>
+          <div style="float: left;">
+            <div style="display: block; clear: left; font-size: medium; font-weight: bold; padding: 0pt 3pt;" title="Current Temperature">
+              <%= @current["main"]["temp"] %>°F
+            </div>
+          <div style="display: block; width: 85px; overflow: visible;"></div>
+        </div>
+      </div>
+      <div style="display: block; clear: left; font-size: small;">Low: <%= @current["main"]["temp_min"] %>°F</div>
+      <div style="display: block; clear: left; font-size: small;">High: <%= @current["main"]["temp_max"] %>°F</div>
+      <div style="display: block; clear: left; font-size: small;">Clouds: <%= @current["clouds"]["all"] %>%</div>
+      <div style="display: block; clear: left; color: gray; font-size: x-small;">Humidity: <%= @current["main"]["humidity"] %>%</div>
+      <div style="display: block; clear: left; color: gray; font-size: x-small;">Wind: <%= @current["wind"]["speed"] %> m/h</div>
+      <div style="display: block; clear: left; color: gray; font-size: x-small;">Pressure: <%= @current["main"]["pressure"] %>hpa</div>
     </div>
+  </div>
 </div>
-
-
-

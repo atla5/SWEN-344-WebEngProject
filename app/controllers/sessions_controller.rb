@@ -1,3 +1,7 @@
+require 'rubygems'
+require 'weather-api'
+require 'open_weather'
+
 class SessionsController < ApplicationController
   def create
     credentials = request.env['omniauth.auth']['credentials']
@@ -9,16 +13,22 @@ class SessionsController < ApplicationController
   def show
     if session['access_token'] && session['access_token_secret']
       @user = client.user(include_entities: true)
-      @tweets = client.home_timeline[0..4]
+      @tweets = client.home_timeline[0..10]
+      @current = OpenWeather::Current.city_id("5134086", { units: "imperial", APPID: "106fc5306b995d8409aa88eb9cc548d4" })
+
     else
       redirect_to failure_path
     end
   end
   
-  def write_tweet
-    @tweet = params[:tweet]
-    client.update(@tweet)
-    redirect_to show_path
+  def writetweet
+    if session['access_token'] && session['access_token_secret']
+      @tweet = params[:tweet]
+      client.update(@tweet)
+      redirect_to show_path
+    else
+      redirect_to failure_path
+    end
   end
 
   def error
