@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   
   
   ## -- CALENDAR --##
-  get '/calendar', to: 'calendar#calendar', as: 'calendar_page'
+  get '/calendar', to: 'calendar#calendar', as: 'calendar'
 
   ## -- TWITTER -- ##
   get '/auth/:provider/callback', to: 'sessions#create'
