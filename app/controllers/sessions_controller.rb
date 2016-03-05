@@ -1,5 +1,4 @@
 require 'rubygems'
-require 'weather-api'
 require 'open_weather'
 require 'yahoo-finance'
 
