@@ -16,7 +16,9 @@
     </div>
     <ul class="nav navbar-nav">
       <li>
-        <%=link_to '<span class="glyphicon glyphicon-calendar"></span> Calendar', calendar_path%>
+        <%=link_to calendar_path do%>
+          <span class="glyphicon glyphicon-calendar"></span> Calendar
+        <% end %>
       </li>
       <li>
         <a href="#"><span class="glyphicon glyphicon-stats"></span> Stocks</a>
