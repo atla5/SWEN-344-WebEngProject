@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'weather-api'
+require 'open_weather'
 
 class SessionsController < ApplicationController
   def create
@@ -13,7 +14,8 @@ class SessionsController < ApplicationController
     if session['access_token'] && session['access_token_secret']
       @user = client.user(include_entities: true)
       @tweets = client.home_timeline[0..10]
-      @forecast = Weather.lookup(12763350, Weather::Units::FAHRENHEIT)
+      @current = OpenWeather::Current.city_id("5134086", { units: "imperial", APPID: "106fc5306b995d8409aa88eb9cc548d4" })
+
     else
       redirect_to failure_path
     end
