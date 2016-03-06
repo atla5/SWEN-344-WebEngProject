@@ -3,7 +3,7 @@
         <h2>Top 5 Stocks</h2>
           <p1>
             <% @stocks.each do |t| %>
-              <b><%= t.name %></b> <br />
+              <b><%= t.name %> (<%= t.symbol %>)</b> <br />
               Value: <%= t.ask %> (<%= t.change %>) <br>High: <%=t.high %> Low: <%= t.low %> End: <%= t.bid %> <br />
             <% end %> 
           </p1>
