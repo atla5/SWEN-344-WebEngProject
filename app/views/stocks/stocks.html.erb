@@ -1,0 +1,10 @@
+<html>
+    
+    <% stocks_list.each do %>
+        ID: <%= stock.id %>
+        Name: <%= stock.name %>
+        Current Price: <%= stock.current_price %>
+        Change: <%= stock.change_and_percent_change %>
+    <% end %>
+    
+</html>
