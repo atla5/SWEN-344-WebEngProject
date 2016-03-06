@@ -4,7 +4,7 @@
           <p1>
             <% @stocks.each do |t| %>
               <b><%= t.name %></b> <br />
-              Value: <%= t.ask %>  High: <%=t.high %> Low: <%= t.low %> End: <%= t.bid %> <br />
+              Value: <%= t.ask %> (<%= t.change %>) <br>High: <%=t.high %> Low: <%= t.low %> End: <%= t.bid %> <br />
             <% end %> 
           </p1>
     </div>
