@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :widgets
   
   ## -- STOCKS -- ##
-  
+  get '/stocks', to: 'sessions#stockList', as: 'stock_list'
   
   ## -- CALENDAR --##
   get '/calendar', to: 'calendar#calendar', as: 'calendar'
