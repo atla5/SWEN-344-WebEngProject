@@ -30,6 +30,17 @@ class SessionsController < ApplicationController
       redirect_to failure_path
     end
   end
+  
+  def getStocks
+    yahoo_client = YahooFinance::Client.new
+    data = yahoo_client.quotes(['AAPL','MSFT','JPC', 'TWTR', 'LUV' ], [:name, :ask, :bid, :last_trade_date])
+    cuddle =[]
+    data.each { |x| slut = x.name + " has a value: " + x.ask
+        cuddle << slut
+    }
+        
+    @stocks = cuddle
+  end
 
   def error
     flash[:error] = 'Sign in with Twitter failed'
