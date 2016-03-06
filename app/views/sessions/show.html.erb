@@ -1,9 +1,9 @@
 <div class="row">
     <div class="col-md-3">
-        <h2>Insert top 5 stocks here!</h2>
+        <h2>Top 5 Stocks</h2>
           <p1>
             <% @stocks.each do |t| %>
-              <%= t.name %> <br />
+              <h4><%= t.name %></h4> <br />
               Value: <%= t.ask %>  End: <%= t.bid %> <br />
             <% end %> 
           </p1>
