@@ -4,7 +4,14 @@
           <p1>
             <% @stocks.each do |t| %>
               <b><%= t.name %> (<%= t.symbol %>)</b> <br />
-              Value: <%= t.ask %> (<%= t.change %>) <br>High: <%=t.high %> Low: <%= t.low %> End: <%= t.bid %> <br />
+              Value: <%= t.ask %> 
+              
+              <% red = "ff0000" %>
+              <% green = "00ff00" %>
+              <% color = (t.change < 0) ? red : green %>
+              (<font color=<%= color %>>  <%= t.change %> </font>) 
+              
+              <br>High: <%=t.high %> Low: <%= t.low %> End: <%= t.bid %> <br />
             <% end %> 
           </p1>
     </div>
