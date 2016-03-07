@@ -2,14 +2,14 @@ require 'yahoo-finance'
 
 class StockController < ApplicationController
     
-    def stockList
+    def stock_list
         if ! (session['access_token'] && session['access_token_secret'])
             redirect_to failure_path
         end
         
     end
     
-    def single_stock
+    def stock_detail
         ticker = :ticker
         if(ticker != nil)
             tickerS = []
@@ -19,7 +19,9 @@ class StockController < ApplicationController
         #unless we need a list of stocks
         @singleStock = data
         end
+        redirect_to '/stocks_detail'
     end
+    
 
 
 end

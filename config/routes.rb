@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   resources :widgets
   
   ## -- STOCKS -- ##
-  get '/stocks', to: 'sessions#stockList', as: 'stock_list'
-  post '/stocks', to: 'stock#single_stock', as: 'ticker'
+  get '/stocks', to: 'stock#stock_detail', as: 'stock_detail'
+  post '/stocks', to: 'stock#stock_detail', as: 'ticker'
   
   ## -- CALENDAR --##
   get '/calendar', to: 'calendar#calendar', as: 'calendar'
