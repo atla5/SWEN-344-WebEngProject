@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   
   ## -- STOCKS -- ##
   get '/stocks', to: 'sessions#stockList', as: 'stock_list'
+  post '/stocks', to: 'stock#single_stock', as: 'ticker'
   
   ## -- CALENDAR --##
   get '/calendar', to: 'calendar#calendar', as: 'calendar'
