@@ -2,7 +2,7 @@
     
 
 <!-- header with <StockName> : <StockPrice>-->
-<h1><%= @stock.name %> : <%= @stock.ask %> </h1>
+<h1><%= @singleStock.name %> : <%= @singleStock.ask %> </h1>
 
 <!-- buy/sell button -->
 
@@ -16,7 +16,7 @@
     |________________________|
     
 -->
-<img src="http://chart.finance.yahoo.com/z?s=<%=@stock.symbol%>&t=6m&q=l&l=on&z=s&p=m50,m200" >
+<img src="http://chart.finance.yahoo.com/z?s=<%=@singleStock.symbol%>&t=6m&q=l&l=on&z=s&p=m50,m200" >
 
 </div>
 
@@ -27,32 +27,32 @@
     
     <tr>
       <td>Current Price</td>
-      <td><%= @stock.ask %></td>
+      <td><%= @singleStock.ask %></td>
     </tr>
     
     <tr>
       <td>Change</td>
-      <td><%= @stock.change_and_percent_change%></td>
+      <td><%= @singleStock.change_and_percent_change%></td>
     </tr>
     
     <tr>
       <td>Day High</td>
-      <td><%= @stock.high %></td>
+      <td><%= @singleStock.high %></td>
     </tr>
     
     <tr>
       <td>Day Low</td>
-      <td><%= @stock.low %></td>
+      <td><%= @singleStock.low %></td>
     </tr>
     
     <tr>
       <td>Year High</td>
-      <td><%= @stock.high_52_weeks %></td>
+      <td><%= @singleStock.high_52_weeks %></td>
     </tr>
     
     <tr>
       <td>Year Low</td>
-      <td><%= @stock.low_52_weeks %></td>
+      <td><%= @singleStock.low_52_weeks %></td>
     </tr>
     
   </table>
@@ -61,7 +61,7 @@
 
 <div id="stock_notes">
     <h3>Notes:</h3>
-    <p> <%= @stock.notes %></p>
+    <p> <%= @singleStock.notes %></p>
 </div>
 
 <!-- personalized stock notes -->
