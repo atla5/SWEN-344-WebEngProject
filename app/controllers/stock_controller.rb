@@ -19,7 +19,6 @@ class StockController < ApplicationController
         #unless we need a list of stocks
         @singleStock = data
         end
-        redirect_to stock_detail_path
     end
     
 
