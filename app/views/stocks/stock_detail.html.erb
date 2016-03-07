@@ -2,10 +2,9 @@
     
 
 <!-- header with <StockName> : <StockPrice>-->
-<h1><%= stock.name %> : <%= stock.current_price %> </h1>
+<h1><%= @stock.name %> : <%= @stock.ask %> </h1>
 
 <!-- buy/sell button -->
-
 
 <div id="stock_graph">
 <!-- pull in the graph from google finance API 
@@ -16,7 +15,7 @@
     |         \/             |
     |________________________|
     
-    <googleAPI>.<getGraphWithStockId>(<% stock.id %>)
+    <googleAPI>.<getGraphWithStockId>(<% @stock.symbol %>)
 
 -->
 </div>
@@ -28,32 +27,32 @@
     
     <tr>
       <td>Current Price</td>
-      <td><%= stock.current_price %></td>
+      <td><%= @stock.ask %></td>
     </tr>
     
     <tr>
       <td>Change</td>
-      <td><%= stock.change_and_percent_change %></td>
+      <td><%= @stock.change_and_percent_change%></td>
     </tr>
     
     <tr>
       <td>Day High</td>
-      <td><%= stock.day_high %></td>
+      <td><%= @stock.high %></td>
     </tr>
     
     <tr>
       <td>Day Low</td>
-      <td><%= stock.day_low %></td>
+      <td><%= @stock.low %></td>
     </tr>
     
     <tr>
       <td>Year High</td>
-      <td><%= stock.day_high %></td>
+      <td><%= @stock.high_52_weeks %></td>
     </tr>
     
     <tr>
       <td>Year Low</td>
-      <td><%= stock.year_low %></td>
+      <td><%= @stock.low_52_weeks %></td>
     </tr>
     
   </table>
@@ -62,7 +61,7 @@
 
 <div id="stock_notes">
     <h3>Notes:</h3>
-    <p> <%= stock.notes %></p>
+    <p> <%= @stock.notes %></p>
 </div>
 
 <!-- personalized stock notes -->
