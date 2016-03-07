@@ -17,7 +17,7 @@ class StockController < ApplicationController
         yahoo_client = YahooFinance::Client.new
         data = yahoo_client.quotes(tickerS, [:name,:ask, :bid, :last_trade_date, :high, :low, :change_and_percent_change,:symbol,:low_52_weeks, :high_52_weeks,:notes])
         #unless we need a list of stocks
-        @stock = data
+        @singleStock = data
         end
         redirect_to stock_detail_path
     end
