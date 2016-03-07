@@ -9,10 +9,10 @@ class StockController < ApplicationController
         
     end
     
-    def stocks
+    def single_stock
         
         #grab a single stock from the entered ticker symbol
-        stockName = #POSt information
+        stockName = #POST information
         ycl = YahooFinance::Client.new   
         @stockInfo = ycl.quotes(stockName, [:ask, :bid, :last_trade_date, :high, :low, :change_from_200_day_moving_average])
         
