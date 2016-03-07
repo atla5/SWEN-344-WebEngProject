@@ -15,7 +15,7 @@
             <% end %> 
           </p1>
           <p2> <br> <br>
-          <%= form_tag(:action => "single_stock", method: "post") do %>
+          <%= form_tag(:action => "single_stock", :controller=>"stock", method: "post") do %>
             <%= text_area_tag(name="ticker",content=nil, options = {size: "20x1", maxlength: 25, placeholder: "Enter Ticker Symbol"}) %>
             <br>
             <%= submit_tag("Search") %>
