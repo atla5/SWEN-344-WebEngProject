@@ -31,7 +31,24 @@ gem 'spring',        group: :development
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'puma'
+#Twitter api interface
+gem 'twitter'
+#authentication gem
+gem 'omniauth-twitter'
+#API for weather data
+gem 'rubyweather'
+gem 'weather-api'
+gem 'open-weather'
 
+#API for calendar display
+gem "simple_calendar", "~> 2.0"
+gem "chronic", "~> 0.10.2"
+
+
+#Library for accessing stocks data
+gem 'yahoo-finance'
+#For setting and reading ENV variables using config/application.yml
+gem 'figaro'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
