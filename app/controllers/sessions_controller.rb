@@ -10,9 +10,10 @@ class SessionsController < ApplicationController
     user = User.find_by handle: client.user.screen_name
     if user == nil
       User.new(
-        name: client.user.name
-        handle: client.user.screen_name
+        name: client.user.name,
+        handle: client.user.screen_name,
         zip: 14623)
+    end
     redirect_to show_path, notice: 'Signed in'
   end
 
