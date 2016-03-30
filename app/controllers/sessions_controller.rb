@@ -9,10 +9,11 @@ class SessionsController < ApplicationController
     session[:access_token_secret] = credentials['secret']
     user = User.where(handle: client.user.screen_name).take
     if user.nil?
-      User.new(
+      u = User.new(
         name: client.user.name,
         handle: client.user.screen_name,
         zip: 14623)
+      u.save
     end
     redirect_to show_path, notice: 'Signed in'
   end
