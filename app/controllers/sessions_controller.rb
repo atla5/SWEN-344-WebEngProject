@@ -7,8 +7,8 @@ class SessionsController < ApplicationController
     credentials = request.env['omniauth.auth']['credentials']
     session[:access_token] = credentials['token']
     session[:access_token_secret] = credentials['secret']
-    user = User.find_by handle: client.user.screen_name
-    if user == nil
+    user = User.where(handle: client.user.screen_name).take
+    if user.nil?
       User.new(
         name: client.user.name,
         handle: client.user.screen_name,
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
 
   def show
     if session['access_token'] && session['access_token_secret']
-      @user = User.find_by handle: client.user.screen_name
+      @user = User.where(handle: client.user.screen_name).take
       @tweets = client.home_timeline[0..10]
       @current = OpenWeather::Current.city_id("5134086", { units: "imperial", APPID: "106fc5306b995d8409aa88eb9cc548d4" })
       yahoo_client = YahooFinance::Client.new
