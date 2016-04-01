@@ -21,6 +21,7 @@ default: &default
   username: <%= ENV['USERNAME'] %>
   password: <%= ENV['PASSWORD'] %>
   host:     <%= ENV['IP'] %>
+  url: <%= ENV['DATABASE_URL'] %>
 
 
 development:
@@ -79,8 +80,10 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+
+staging:
+  database: twitterstocks-staging
+  
 production:
   <<: *default
-  database: ruby-getting-started_production
-  username: ruby-getting-started
-  password: <%= ENV['RUBY-GETTING-STARTED_DATABASE_PASSWORD'] %>
+  database: twitterstocks-production
