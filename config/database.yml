@@ -82,6 +82,7 @@ test:
 #
 
 staging:
+  <<: *default
   database: twitterstocks-staging
   
 production:
