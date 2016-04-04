@@ -7,14 +7,14 @@ class SessionsController < ApplicationController
     credentials = request.env['omniauth.auth']['credentials']
     session[:access_token] = credentials['token']
     session[:access_token_secret] = credentials['secret']
-    user = User.where(handle: client.user.screen_name).take
-    if user.nil?
-      u = User.new(
-        name: client.user.name,
-        handle: client.user.screen_name,
-        zip: 14623)
-      u.save
-    end
+    #user = User.where(handle: client.user.screen_name).take
+    # if user.nil?
+    #   u = User.new(
+    #     name: client.user.name,
+    #     handle: client.user.screen_name,
+    #     zip: 14623)
+    #   u.save
+    # end
     redirect_to show_path, notice: 'Signed in'
   end
 
