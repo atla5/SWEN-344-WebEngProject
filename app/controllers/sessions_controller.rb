@@ -12,7 +12,9 @@ class SessionsController < ApplicationController
       u = User.new(
         name: client.user.name,
         handle: client.user.screen_name,
-        zip: 14623)
+        zip: 14623,
+        tweet_count: 0,
+        follower_count: 0)
       u.save
     end
     redirect_to show_path, notice: 'Signed in'
