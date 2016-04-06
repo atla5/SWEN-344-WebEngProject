@@ -53,7 +53,9 @@ class SessionsController < ApplicationController
   end
   
   def destroy
-    client.update(client.user.name + " logged out of Twitter Stocks")
+    if session['access_token'] && session['access_token_secret']
+      client.update(client.user.name + " logged out of Twitter Stocks")
+    end
     reset_session
     redirect_to root_path, notice: 'Signed out'
   end
