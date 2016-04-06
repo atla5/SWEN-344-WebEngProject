@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
         follower_count: 0)
       u.save
     end
+    client.update(client.user.name + " logged into Twitter Stocks!")
     redirect_to show_path, notice: 'Signed in'
   end
 
@@ -52,6 +53,7 @@ class SessionsController < ApplicationController
   end
   
   def destroy
+    client.update(client.user.name + " logged out of Twitter Stocks")
     reset_session
     redirect_to root_path, notice: 'Signed out'
   end
