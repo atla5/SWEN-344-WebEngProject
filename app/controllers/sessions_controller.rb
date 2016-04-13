@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
 
   def show
     if session['access_token'] && session['access_token_secret']
-      @user = User.where(handle: client.user.screen_name).tak
+      @user = User.where(handle: client.user.screen_name).take
       @tweets = client.home_timeline[0..10]
       @current = OpenWeather::Current.city_id("5134086", { units: "imperial", APPID: "106fc5306b995d8409aa88eb9cc548d4" })
       yahoo_client = YahooFinance::Client.new
