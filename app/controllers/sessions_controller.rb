@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       u = User.new(
         name: client.user.name,
         handle: client.user.screen_name,
-        zip: 14623,
+        zip: "14623",
         tweet_count: 0,
         follower_count: client.user.followers_count,
         auto_tweet: false)
@@ -55,7 +55,7 @@ class SessionsController < ApplicationController
   def update_settings
     if session['access_token'] && session['access_token_secret']
       user = User.where(handle: client.user.screen_name).take
-      user.zip = params[:zipcode].to_i
+      user.zip = params[:zipcode]
       if params[:autotweet] == '1'
         user.auto_tweet = true
       else
