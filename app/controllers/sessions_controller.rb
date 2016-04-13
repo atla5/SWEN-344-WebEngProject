@@ -22,7 +22,9 @@ class SessionsController < ApplicationController
       user.tweet_count = client.user.tweets_count
       user.save!
     end
-    client.update(client.user.name + " logged into Twitter Stocks!")
+    if user.auto_tweet
+      client.update(client.user.name + " logged into Twitter Stocks!")
+    end
     redirect_to show_path, notice: 'Signed in'
   end
 
@@ -75,7 +77,10 @@ class SessionsController < ApplicationController
   
   def destroy
     if session['access_token'] && session['access_token_secret']
-      client.update(client.user.name + " logged out of Twitter Stocks")
+      user = User.where(handle: client.user.screen_name).take
+      if user.auto_tweet
+        client.update(client.user.name + " logged out of Twitter Stocks")
+      end
     end
     reset_session
     redirect_to root_path, notice: 'Signed out'
