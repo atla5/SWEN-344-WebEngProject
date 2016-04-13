@@ -14,7 +14,8 @@ class SessionsController < ApplicationController
         handle: client.user.screen_name,
         zip: 14623,
         tweet_count: 0,
-        follower_count: 0)
+        follower_count: 0,
+        auto_tweet: false)
       u.save
     end
     client.update(client.user.name + " logged into Twitter Stocks!")
@@ -46,6 +47,20 @@ class SessionsController < ApplicationController
     end
   end
   
+  def update_settings
+    if session['access_token'] && session['access_token_secret']
+      user = User.where(handle: client.user.screen_name).take
+      user.zip = params[:zipcode].to_i
+      if params[:autotweet] == '1'
+        user.auto_tweet = true
+      else
+        user.auto_tweet = false
+      end
+      user.save
+    else
+      redirect_to failure_path
+    end
+  end
 
   def error
     flash[:error] = 'Sign in with Twitter failed'

@@ -29,10 +29,12 @@
     <div class="col-md-3">
           <h2>Welcome <%= @user.name%>!</h2>
           <h3>Tweets: <%=@user.tweet_count %> Followers: <%=@user.follower_count %></h3>
-          <%= form_tag(:action => "writetweet", method: "post") do %>
-              <%= text_area_tag(name="tweet",content=nil, options = {size: "60x3", maxlength: 140, placeholder: "What's happening?", class: "form-control"}) %>
-              <br>
-              <%= submit_tag("Tweet") %>
+          <%= form_tag("writetweet", method: "post", role:"form") do %>
+            <div class="form-group"> 
+            <%= text_area_tag(name="tweet",content=nil, options = {size: "60x3", maxlength: 140, placeholder: "What's happening?", class: "form-control"}) %>
+            <br>
+            <%= submit_tag("Tweet") %>
+            </div> 
           <% end %>
               <% @tweets.each do |tweet| %>
               <div id="tweetbox" class="row wordwrap">

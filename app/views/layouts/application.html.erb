@@ -26,9 +26,9 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li>
-        <button type="button" data-toggle = "modal" data-target="#settingsModal">
+        <a href="#" data-toggle = "modal" data-target="#settingsModal">
           <span class="glyphicon glyphicon-cog"></span>
-        </button>
+        </a>
       </li>
       <li class="navbar-right">
         <%= link_to "Logout", signout_path, method: :delete %>
@@ -44,20 +44,19 @@
         <h4 class="modal-title">Settings</h4>
       </div>
       <div class="modal-body">
-        <%= form_tag(:action => "writetweet", method: "post", role="form") do %>
+        <%= form_tag("update_settings", method: "post", role:"form") do %>
           <div class="form-group">
             <%= label_tag(:zipcode, "Zipcode") %>
             <%= text_field_tag(name="zipcode",value=nil, options = {size: 5, maxlength: 5, class: "form-control"}) %>
           </div>
           <div class="form-group">
             <div class="checkbox">
-            <%= label_tag(:autotweet, "Auto tweet") %>
-            <%= check_box_tag("autotweet") %>
+            <label><%= check_box_tag("autotweet") %> Autotweet enabled</label>
             </div>
           </div>
       </div>
         <div class="modal-footer">
-          <%= submit_tag("Submit") %>
+          <button type="submit" class="btn btn-default">Submit</button>
         </div>
       <% end %>
     </div>
