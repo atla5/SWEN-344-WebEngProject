@@ -19,6 +19,7 @@ class SessionsController < ApplicationController
       u.save!
     else
       user.follower_count = client.user.followers_count
+      user.tweet_count = client.user.tweet_count
       user.save!
     end
     client.update(client.user.name + " logged into Twitter Stocks!")
