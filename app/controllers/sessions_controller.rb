@@ -14,9 +14,12 @@ class SessionsController < ApplicationController
         handle: client.user.screen_name,
         zip: 14623,
         tweet_count: 0,
-        follower_count: 0,
+        follower_count: client.user.followers_count,
         auto_tweet: false)
       u.save
+    else
+      user.follower_count = client.user.followers_count
+      user.save
     end
     client.update(client.user.name + " logged into Twitter Stocks!")
     redirect_to show_path, notice: 'Signed in'
@@ -24,9 +27,7 @@ class SessionsController < ApplicationController
 
   def show
     if session['access_token'] && session['access_token_secret']
-      @user = User.where(handle: client.user.screen_name).take
-      @user.tweet_count = client.user.tweets_count
-      @user.follower_count = client.user.followers_count
+      @user = User.where(handle: client.user.screen_name).tak
       @tweets = client.home_timeline[0..10]
       @current = OpenWeather::Current.city_id("5134086", { units: "imperial", APPID: "106fc5306b995d8409aa88eb9cc548d4" })
       yahoo_client = YahooFinance::Client.new
@@ -40,6 +41,9 @@ class SessionsController < ApplicationController
   def writetweet
     if session['access_token'] && session['access_token_secret']
       @tweet = params[:tweet]
+      user = User.where(handle: client.user.screen_name).take
+      user.tweet_count = client.user.tweets_count
+      user.save
       client.update(@tweet)
       redirect_to show_path
     else
