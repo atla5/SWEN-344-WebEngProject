@@ -49,6 +49,7 @@ gem "chronic", "~> 0.10.2"
 gem 'yahoo-finance'
 #For setting and reading ENV variables using config/application.yml
 gem 'figaro'
+gem 'railties'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

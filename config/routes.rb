@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get '/auth/twitter/callback', to: 'sessions#create', as: 'callback'
   get '/auth/failure', to: 'sessions#error', as: 'failure'
   post '/writetweet', to: 'sessions#writetweet', as: 'write_tweet'
+  post '/update_settings', to: 'sessions#update_settings', as: 'update_settings'
   resources :widgets
 
   # The priority is based upon order of creation: first created -> highest priority.
