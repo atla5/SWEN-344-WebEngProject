@@ -55,7 +55,7 @@ class SessionsController < ApplicationController
   # end
   
   def update_settings
-    if session['access_token'] && session['access_token_secret']
+    #if session['access_token'] && session['access_token_secret']
       user = User.where(handle: "dan_tester344").take
       user.zip = params[:zipcode]
       if params[:autotweet] == '1'
@@ -65,9 +65,9 @@ class SessionsController < ApplicationController
       end
       user.save!
       redirect_to show_path
-    else
-      redirect_to failure_path
-    end
+    #else
+      #redirect_to failure_path
+    #end
   end
 
   def error
