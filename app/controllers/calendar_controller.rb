@@ -4,6 +4,8 @@ class CalendarController < ApplicationController
         #if ! (session['access_token'] && session['access_token_secret'])
             #redirect_to failure_path
         #end
+        @user = User.where(handle: "dan_tester344").take
+        @events = @user.events
     end
 
 end
