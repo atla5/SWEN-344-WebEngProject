@@ -7,5 +7,8 @@ class CalendarController < ApplicationController
         @user = User.where(handle: "dan_tester344").take
         @events = @user.events
     end
+    
+    def new_event
+    end
 
 end
