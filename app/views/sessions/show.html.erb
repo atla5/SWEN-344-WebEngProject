@@ -29,24 +29,6 @@
     <div class="col-md-3">
           <h2>Welcome <%= @user.name%>!</h2>
           <h3>Tweets: <%=@user.tweet_count %> Followers: <%=@user.follower_count %></h3>
-          <%= form_tag("writetweet", method: "post", role:"form") do %>
-            <div class="form-group"> 
-            <%= text_area_tag(name="tweet",content=nil, options = {size: "60x3", maxlength: 140, placeholder: "What's happening?", class: "form-control"}) %>
-            <br>
-            <%= submit_tag("Tweet") %>
-            </div> 
-          <% end %>
-              <% @tweets.each do |tweet| %>
-              <div id="tweetbox" class="row wordwrap">
-      			  <div class="col-xs-1">
-      				  <img src="<%=tweet.user.profile_image_uri_https %>"/>
-      			  </div>
-      			  <div class="col-xs-11">
-        				<strong><%= tweet.user.name %></strong> @<%= tweet.user.screen_name %>
-        				<p><%= link_to tweet.text, "https://www.twitter.com/#{tweet.user.screen_name}/status/#{tweet.id}" %></p>
-      			  </div>
-  		       </div>
-              <% end %>
     </div>
       <div class="col-md-9">
           <h2>Top 5 Stocks</h2>

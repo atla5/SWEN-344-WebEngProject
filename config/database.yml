@@ -21,12 +21,14 @@ default: &default
   username: <%= ENV['USERNAME'] %>
   password: <%= ENV['PASSWORD'] %>
   host:     <%= ENV['IP'] %>
-  url: <%= ENV['DATABASE_URL'] %>
+  
 
 
 development:
   <<: *default
   database: twitterstocks-development
+  url: <%= ENV['DATABASE_URL'] %>
+  
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
@@ -84,7 +86,9 @@ test:
 staging:
   <<: *default
   database: twitterstocks-staging
+  url: <%= ENV['DATABASE_URL'] %>
   
 production:
   <<: *default
   database: twitterstocks-production
+  url: <%= ENV['DATABASE_URL'] %>
