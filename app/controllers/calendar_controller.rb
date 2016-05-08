@@ -21,8 +21,4 @@ class CalendarController < ApplicationController
         redirect_to calendar_path
     end
     
-    def put_json
-        Event.write_json
-    end
-    
 end
