@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'open_weather'
 require 'yahoo-finance'
+require 'csv'
 
 class SessionsController < ApplicationController
   def create
@@ -32,7 +33,20 @@ class SessionsController < ApplicationController
     if session['access_token'] && session['access_token_secret']
       @user = User.where(handle: "dan_tester344").take
       @tweets = client.home_timeline[0..10]
-      @current = OpenWeather::Current.city_id("5134086", { units: "imperial", APPID: "106fc5306b995d8409aa88eb9cc548d4" })
+
+      lat = 0.0
+      long = 0.0
+      zipcode = @user.zip.to_s
+      CSV.foreach("app/assets/cityzip.csv") do |line|
+         if(line[2] == zipcode)
+            lat = line[3].to_f
+            long = line[4].to_f
+            break
+         end
+      end
+
+      #@current = OpenWeather::Current.city_id("5134086", { units: "imperial", APPID: "106fc5306b995d8409aa88eb9cc548d4" })
+      @current = OpenWeather::Current.geocode(lat, long, { units: "imperial", APPID: "106fc5306b995d8409aa88eb9cc548d4" })
       yahoo_client = YahooFinance::Client.new
       ycl = yahoo_client.quotes(['AAPL','MSFT','JPC', 'TWTR', 'LUV' ], [:name, :ask, :bid, :high, :low, :change, :symbol, :last_trade_date])
       @stocks = ycl
