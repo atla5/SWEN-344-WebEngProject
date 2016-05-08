@@ -36,11 +36,24 @@ gem 'twitter'
 #authentication gem
 gem 'omniauth-twitter'
 #API for weather data
+<<<<<<< HEAD
 gem 'open-weather'
+=======
+gem 'rubyweather'
+gem 'weather-api'
+gem 'open-weather'
+
+#API for calendar display
+gem "simple_calendar", "~> 2.0"
+gem "chronic", "~> 0.10.2"
+
+
+>>>>>>> 24ce25afce7b3b2dac86c442725c1adaac4c2ddc
 #Library for accessing stocks data
-gem 'yahoofinance'
+gem 'yahoo-finance'
 #For setting and reading ENV variables using config/application.yml
 gem 'figaro'
+gem 'railties'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
