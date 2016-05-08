@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 20160505140540) do
     t.string   "name"
     t.string   "handle"
     t.string   "zip"
+    t.integer  "tweetscount"
+    t.integer  "followerscount"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.integer  "tweet_count"

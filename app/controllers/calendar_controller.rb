@@ -25,6 +25,4 @@ class CalendarController < ApplicationController
         Event.write_json
     end
     
-    def get_json
-
 end
