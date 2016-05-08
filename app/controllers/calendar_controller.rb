@@ -1,3 +1,5 @@
+require 'json'
+
 class CalendarController < ApplicationController
 
     def calendar
@@ -18,5 +20,11 @@ class CalendarController < ApplicationController
         e.save
         redirect_to calendar_path
     end
+    
+    def put_json
+        Event.write_json
+    end
+    
+    def get_json
 
 end
