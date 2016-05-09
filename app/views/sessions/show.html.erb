@@ -8,7 +8,15 @@
             </div>
             <div style="float: left;">
               <div style="display: block; clear: left; font-size: medium; padding: 0pt 3pt;" title="Current Temperature">
-               <p> <%= @current["name"] %> <%= @current["main"]["temp"] %>°F | Low: <%= @current["main"]["temp_min"] %>°F | High: <%= @current["main"]["temp_max"] %>°F | Clouds: <%= @current["clouds"]["all"] %>% | Humidity: <%= @current["main"]["humidity"] %> | %Wind: <%= @current["wind"]["speed"] %> m/h | Pressure: <%= @current["main"]["pressure"] %>hpa</p>
+                <p> 
+                  <h3><%= @current["name"] %> </h3> <%= @current["main"]["temp"] %>°F | 
+                  <b>Low:</b> <%= @current["main"]["temp_min"] %>°F | 
+                  <b>High:</b> <%= @current["main"]["temp_max"] %>°F |
+                  <b>Clouds:</b> <%= @current["clouds"]["all"] %>% | 
+                  <b>Humidity:</b> <%= @current["main"]["humidity"] %>% | 
+                  <b>Wind:</b> <%= @current["wind"]["speed"] %> m/h | 
+                  <b>Pressure:</b> <%= @current["main"]["pressure"] %>hpa
+                </p>
               </div>
           </div>
         </div>
