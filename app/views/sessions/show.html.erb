@@ -4,21 +4,25 @@
         <div style="float: left; width: 100%;">
           <div style="display: block; clear: left;">
             <div style="float: left;" title="Title">
-              <img style="border: medium none; width: 45px; height: 45px;  background: url(&quot;http://openweathermap.org/img/w/<%= @current["weather"][0]["icon"].to_s %>.png&quot;) repeat scroll 0% 0% transparent;" alt="title" src="http://openweathermap.org/images/transparent.png" height="45" width="45">
+              <img style="border: medium none; width: 45px; height: 45px;  background: url(&quot;http://openweathermap.org/img/w/<%= @current["weather"][0]["icon"].to_s %>.png&quot;) repeat scroll 0% 0% transparent;" alt="title" src="http://openweathermap.org/images/transparent.png" height="35" width="35">
             </div>
             <div style="float: left;">
               <div style="display: block; clear: left; font-size: medium; padding: 0pt 3pt;" title="Current Temperature">
                <div style="display: block; clear: left; font-size: medium; padding: 0pt 3pt;" title="Current Temperature">
                 <p>
-                  <span style="font-size: 16px; text-decoration: underline; font-weight: bold"><%= @current["name"] %></u></b> </span> 
+                  <span style="font-size: 30px; text-decoration: underline; font-weight: bold">
+                    <%= @current["name"] %>
+                  </span> 
+                  <span style="display: inline-block; vertical-align: middle; line-height: normal;">
                   <!--<style font-size="20"><b><u><</style>-->
-                  <b>Temperature</b><%= @current["main"]["temp"] %>°F | 
-                  <b>Low:</b> <%= @current["main"]["temp_min"] %>°F | 
-                  <b>High:</b> <%= @current["main"]["temp_max"] %>°F |
-                  <b>Clouds:</b> <%= @current["clouds"]["all"] %>% | 
-                  <b>Humidity:</b> <%= @current["main"]["humidity"] %>% | 
-                  <b>Wind:</b> <%= @current["wind"]["speed"] %> m/h | 
-                  <b>Pressure:</b> <%= @current["main"]["pressure"] %> hpa
+                    <b>Temperature</b><%= @current["main"]["temp"] %>°F | 
+                    <b>Low:</b> <%= @current["main"]["temp_min"] %>°F | 
+                    <b>High:</b> <%= @current["main"]["temp_max"] %>°F |
+                    <b>Clouds:</b> <%= @current["clouds"]["all"] %>% | 
+                    <b>Humidity:</b> <%= @current["main"]["humidity"] %>% | 
+                    <b>Wind:</b> <%= @current["wind"]["speed"] %> m/h | 
+                    <b>Pressure:</b> <%= @current["main"]["pressure"] %> hpa
+                  </span>
                 </p>
               </div>
               </div>
