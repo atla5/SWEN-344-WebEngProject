@@ -9,33 +9,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-static-top navbar-inverse">
-  <div class="container">
-    <div class="navbar-header">
-      <%=link_to('Twitter Stocks', show_path, html_options={class: "navbar-brand"})%>
-    </div>
-    <ul class="nav navbar-nav">
-      <li>
-        <%=link_to calendar_path do%>
-          <span class="glyphicon glyphicon-calendar"></span> Calendar
-        <% end %>
-      </li>
-      <li>
-        <a href="#"><span class="glyphicon glyphicon-stats"></span> Stocks</a>
-      </li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li>
-        <a href="#" data-toggle = "modal" data-target="#settingsModal">
-          <span class="glyphicon glyphicon-cog"></span>
-        </a>
-      </li>
-      <li class="navbar-right">
-        <%= link_to "Logout", signout_path, method: :delete %>
-      </li>
-    </ul>
-  </div>
-</nav>
+<% if @loggedIn %>
+  <%= render :partial => "navbar" %>
+<% end %>
 <div id="settingsModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
