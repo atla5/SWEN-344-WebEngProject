@@ -69,7 +69,7 @@ class SessionsController < ApplicationController
   
   def update_settings
     if session['access_token'] && session['access_token_secret']
-      user = User.where(handle: "dan_tester344").take
+      user = User.where(handle: client.user.screen_name).take
       user.zip = params[:zipcode]
       if params[:autotweet] == '1'
         user.auto_tweet = true
