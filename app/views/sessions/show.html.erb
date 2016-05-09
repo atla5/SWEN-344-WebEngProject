@@ -3,20 +3,20 @@
     <div class="col-xs-12">
         <div style="float: left; width: 100%;">
           <div style="display: block; clear: left;">
-            <div style="float: left;" title="Titel">
+            <div style="float: left;" title="Title">
               <img style="border: medium none; width: 45px; height: 45px;  background: url(&quot;http://openweathermap.org/img/w/<%= @current["weather"][0]["icon"].to_s %>.png&quot;) repeat scroll 0% 0% transparent;" alt="title" src="http://openweathermap.org/images/transparent.png" height="45" width="45">
             </div>
             <div style="float: left;">
               <div style="display: block; clear: left; font-size: medium; padding: 0pt 3pt;" title="Current Temperature">
                <div style="display: block; clear: left; font-size: medium; padding: 0pt 3pt;" title="Current Temperature">
                 <p> 
-                  <h3><%= @current["name"] %> </h3> <%= @current["main"]["temp"] %>°F | 
+                  <h4><%= @current["name"] %> </h4> <%= @current["main"]["temp"] %>°F | 
                   <b>Low:</b> <%= @current["main"]["temp_min"] %>°F | 
                   <b>High:</b> <%= @current["main"]["temp_max"] %>°F |
                   <b>Clouds:</b> <%= @current["clouds"]["all"] %>% | 
                   <b>Humidity:</b> <%= @current["main"]["humidity"] %>% | 
                   <b>Wind:</b> <%= @current["wind"]["speed"] %> m/h | 
-                  <b>Pressure:</b> <%= @current["main"]["pressure"] %>hpa
+                  <b>Pressure:</b> <%= @current["main"]["pressure"] %> hpa
                 </p>
               </div>
               </div>
@@ -27,8 +27,9 @@
   </div>
   <div class="row">
     <div class="col-md-3">
-      <h2>Welcome <%= @user.name%>!</h2>
-      <h3>Tweets: <%=@user.tweet_count %> Followers: <%=@user.follower_count %></h3>
+      <h2>Welcome <%=@user.name%>!</h2>
+      <h4>Tweets: <%=@user.tweet_count %></h4>
+      <h4>Followers: <%=@user.follower_count %></h4>
       
       <%= form_tag("writetweet", method: "post", role:"form") do %>
         <div class="form-group"> 
@@ -71,7 +72,7 @@
                     <% color = ( (t.change).include? "-") ? red : green %>
                     (<font color=<%= color %>>  <%= t.change %> </font>) 
                 
-                    <br>High: <%=t.high %> Low: <%= t.low %> End: <%= t.bid %> <br />
+                    <br><b>High:</b> <%=t.high %> <b>Low:</b> <%= t.low %> <b>End:</b> <%= t.bid %> <br />
                   </div>
                 </div>
               </div>
