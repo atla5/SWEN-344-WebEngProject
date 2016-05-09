@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'open_weather'
 require 'yahoo-finance'
+require 'csv'
 
 class SessionsController < ApplicationController
   def create
@@ -25,14 +26,26 @@ class SessionsController < ApplicationController
     if user.auto_tweet
       client.update(client.user.name + " logged into Twitter Stocks!")
     end
-    redirect_to show_path, notice: 'Signed in'
+    redirect_to show_path, notice: 'Signed ins'
   end
 
   def show
     if session['access_token'] && session['access_token_secret']
-      @user = User.where(handle: "dan_tester344").take
+      @user = User.where(handle: client.user.screen_name).take
       @tweets = client.home_timeline[0..10]
-      @current = OpenWeather::Current.city_id("5134086", { units: "imperial", APPID: "106fc5306b995d8409aa88eb9cc548d4" })
+
+      lat = 0.0
+      long = 0.0
+      zipcode = @user.zip.to_s
+      CSV.foreach("app/assets/cityzip.csv") do |line|
+         if(line[2] == zipcode)
+            lat = line[3].to_f
+            long = line[4].to_f
+            break
+         end
+      end
+
+      @current = OpenWeather::Current.geocode(lat, long, { units: "imperial", APPID: "106fc5306b995d8409aa88eb9cc548d4" })
       yahoo_client = YahooFinance::Client.new
       ycl = yahoo_client.quotes(['AAPL','MSFT','JPC', 'TWTR', 'LUV' ], [:name, :ask, :bid, :high, :low, :change, :symbol, :last_trade_date])
       @stocks = ycl
@@ -56,7 +69,7 @@ class SessionsController < ApplicationController
   
   def update_settings
     if session['access_token'] && session['access_token_secret']
-      user = User.where(handle: "dan_tester344").take
+      user = User.where(handle: client.user.screen_name).take
       user.zip = params[:zipcode]
       if params[:autotweet] == '1'
         user.auto_tweet = true
