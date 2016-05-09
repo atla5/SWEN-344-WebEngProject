@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
     else
       user.follower_count = client.user.followers_count
       user.tweet_count = client.user.tweets_count
-      user.save!
+      user.save
     end
     if user.auto_tweet
       client.update(client.user.name + " logged into Twitter Stocks!")
@@ -59,7 +59,7 @@ class SessionsController < ApplicationController
       @tweet = params[:tweet]
       user = User.where(handle: client.user.screen_name).take
       user.tweet_count = client.user.tweets_count
-      user.save!
+      user.save
       client.update(@tweet)
       redirect_to show_path
     else
@@ -76,7 +76,7 @@ class SessionsController < ApplicationController
       else
         user.auto_tweet = false
       end
-      user.save!
+      user.save
       redirect_to show_path
     else
       redirect_to failure_path
