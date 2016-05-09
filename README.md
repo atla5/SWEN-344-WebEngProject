@@ -8,7 +8,7 @@ Contributors: Aidan Sawyer, Richard Jester, Eric Yoon, Dylan Hogue, Aaron Stadle
 
 ### individual branches ###
 
-calendar: http://twitterstocks-calendar.herokuapp.com/
+calendar: https://twitterstocks-cal.herokuapp.com/
 
 stocks:   http://twitterstocks-stocks.herokuapp.com/
 
