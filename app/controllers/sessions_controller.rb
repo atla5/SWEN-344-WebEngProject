@@ -5,7 +5,6 @@ require 'csv'
 
 class SessionsController < ApplicationController
   def create
-    @loggedIn = true
     credentials = request.env['omniauth.auth']['credentials']
     session[:access_token] = credentials['token']
     session[:access_token_secret] = credentials['secret']
