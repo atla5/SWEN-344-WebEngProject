@@ -11,15 +11,17 @@
             </div>
             <div style="float: left;">
               <div style="display: block; clear: left; font-size: medium; font-weight: bold; padding: 0pt 3pt;" title="Current Temperature">
-                <%= @current["main"]["temp"] %>°F
+               <p> <%= @current["main"]["temp"] %>°F Low: <%= @current["main"]["temp_min"] %>°F High: <%= @current["main"]["temp_max"] %>°F Clouds: <%= @current["clouds"]["all"] %>% Humidity: <%= @current["main"]["humidity"] %>%Wind: <%= @current["wind"]["speed"] %> m/h Pressure: <%= @current["main"]["pressure"] %>hpa</p>
               </div>
           </div>
+          <!---
           <div style="display: block; float: left; clear: left; font-size: small;">Low: <%= @current["main"]["temp_min"] %>°F</div>
           <div style="display: block; float: left; clear: left; font-size: small;">High: <%= @current["main"]["temp_max"] %>°F</div>
           <div style="display: block; float: left; clear: left; font-size: small;">Clouds: <%= @current["clouds"]["all"] %>%</div>
           <div style="display: block; float: left; clear: left; color: gray; font-size: x-small;">Humidity: <%= @current["main"]["humidity"] %>%</div>
           <div style="display: block; float: left; clear: left; color: gray; font-size: x-small;">Wind: <%= @current["wind"]["speed"] %> m/h</div>
           <div style="display: block; float: left; clear: left; color: gray; font-size: x-small;">Pressure: <%= @current["main"]["pressure"] %>hpa</div>
+        -->
         </div>
       </div>
     </div>
