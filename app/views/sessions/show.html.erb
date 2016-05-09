@@ -4,21 +4,19 @@
       <div style="float: left; width: 100%;">
         <div style="display: block; clear: left;">
           <div style="float: left;" title="Title">
-            <img style="border: medium none; width: 35px; height: 35px;  background: url(&quot;http://openweathermap.org/img/w/<%= @current["weather"][0]["icon"].to_s %>.png&quot;) repeat scroll 0% 0% transparent;" alt="title" src="http://openweathermap.org/images/transparent.png" height="35" width="35">
+            <img style="border: medium none; width: 45px; height: 45px;  background: url(&quot;http://openweathermap.org/img/w/<%= @current["weather"][0]["icon"].to_s %>.png&quot;) repeat scroll 0% 0% transparent;" alt="title" src="http://openweathermap.org/images/transparent.png" height="35" width="35">
             <span style="font-size: 20px; font-weight: bold"> <%= @current["name"] %>:  </span> 
           </div>
           <div style="float: left;">
-            <div style="display: block; clear: left; font-size: medium; vertical-align: baseline;" title="weather_detail">
+            <div style="display: block; clear: left; font-size: medium; vertical-align: bottom;" title="weather_detail">
               <p>
-                <span style="vertical-align: baseline;">
                 <b>Temperature:</b> <%= @current["main"]["temp"] %>°F | 
                 <b>Low:</b> <%= @current["main"]["temp_min"] %>°F | 
                 <b>High:</b> <%= @current["main"]["temp_max"] %>°F |
                 <b>Clouds:</b> <%= @current["clouds"]["all"] %>% | 
                 <b>Humidity:</b> <%= @current["main"]["humidity"] %>% | 
-                <b>Wind:</b> <%= @current["wind"]["speed"] %> m/h | 
+                <b>Wind:</b> <%= @current["wind"]["speed"] %> mph | 
                 <b>Pressure:</b> <%= @current["main"]["pressure"] %> hpa
-                </span>
               </p>
             </div>
           </div>
@@ -59,7 +57,7 @@
       <div class="col-md-9">
       <h2>Top Stocks</h2>
         <p2> 
-          <b>Search for Individual Stock (by Id): </b>
+          <b>Search for Individual Stock (by symbol): </b>
           <%= form_tag(:action => "stock_detail", :controller=>"stock", method: "post") do %>
             <%= text_field_tag(name="ticker",content=nil, options = {size: "20x1", maxlength: 25, placeholder: "Enter Ticker Symbol"}) %>
             <%= submit_tag("Search") %>
