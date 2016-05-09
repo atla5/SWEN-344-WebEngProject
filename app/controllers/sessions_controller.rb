@@ -26,12 +26,12 @@ class SessionsController < ApplicationController
     if user.auto_tweet
       client.update(client.user.name + " logged into Twitter Stocks!")
     end
-    redirect_to show_path, notice: 'Signed in'
+    redirect_to show_path, notice: 'Signed ins'
   end
 
   def show
     if session['access_token'] && session['access_token_secret']
-      @user = User.where(handle: "dan_tester344").take
+      @user = User.where(handle: client.user.screen_name).take
       @tweets = client.home_timeline[0..10]
 
       lat = 0.0
