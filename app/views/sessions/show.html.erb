@@ -10,11 +10,10 @@
               <div style="display: block; clear: left; font-size: medium; padding: 0pt 3pt;" title="Current Temperature">
                <div style="display: block; clear: left; font-size: medium; padding: 0pt 3pt;" title="Current Temperature">
                 <p>
-                  <span style="font-size: 22px; text-decoration: underline; font-weight: bold">
+                  <span style="font-size: 20px; font-weight: bold">
                     <%= @current["name"] %>, <%= @current["country"] %>
                   </span> 
                   <span style="display: inline-block; vertical-align: middle; line-height: normal;">
-                  <!--<style font-size="20"><b><u><</style>-->
                     <b>Temperature:</b> <%= @current["main"]["temp"] %>°F | 
                     <b>Low:</b> <%= @current["main"]["temp_min"] %>°F | 
                     <b>High:</b> <%= @current["main"]["temp_max"] %>°F |
