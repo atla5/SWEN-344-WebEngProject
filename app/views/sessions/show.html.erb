@@ -10,9 +10,7 @@
               <div style="display: block; clear: left; font-size: medium; padding: 0pt 3pt;" title="Current Temperature">
                <div style="display: block; clear: left; font-size: medium; padding: 0pt 3pt;" title="Current Temperature">
                 <p>
-                  <span style="font-size: 20px; font-weight: bold">
-                    <%= @current["name"] %>, <%= @current["country"] %>
-                  </span> 
+                  <span style="font-size: 20px; font-weight: bold"> <%= @current["name"] %>:  </span> 
                   <span style="display: inline-block; vertical-align: middle; line-height: normal;">
                     <b>Temperature:</b> <%= @current["main"]["temp"] %>°F | 
                     <b>Low:</b> <%= @current["main"]["temp_min"] %>°F | 
@@ -37,8 +35,8 @@
   <div class="row">
     <div class="col-md-3">
       <h3>Twitter</h3>
-      <h4>Tweets:</h4> <%=@user.tweet_count %>
-      <h4>Followers:</h4> <%=@user.follower_count %>
+      <span style="font-size: 16px; font-weight: bold" >Tweets:</span> <%=@user.tweet_count %>
+      <span style="font-size: 16px; font-weight: bold" >Followers:</span> <%=@user.follower_count %>
       
       <%= form_tag("writetweet", method: "post", role:"form") do %>
         <div class="form-group"> 
@@ -62,6 +60,14 @@
     </div>
       <div class="col-md-9">
       <h2>Top Stocks</h2>
+        <p2> <br> <br>
+          <%= form_tag(:action => "stock_detail", :controller=>"stock", method: "post") do %>
+            <%= text_field_tag(name="ticker",content=nil, options = {size: "20x1", maxlength: 25, placeholder: "Enter Ticker Symbol"}) %>
+            <br>
+            <%= submit_tag("Search") %>
+          <% end %> 
+        </p2>
+      
         <p1>
           <div class="panel-group" id="accordion">
             <% @stocks.each do |s| %>
@@ -89,13 +95,7 @@
           </div>
 
         </p1>
-        <p2> <br> <br>
-          <%= form_tag(:action => "stock_detail", :controller=>"stock", method: "post") do %>
-            <%= text_area_tag(name="ticker",content=nil, options = {size: "20x1", maxlength: 25, placeholder: "Enter Ticker Symbol"}) %>
-            <br>
-            <%= submit_tag("Search") %>
-          <% end %> 
-        </p2>
+        
       </div>
   </div>
 </div>

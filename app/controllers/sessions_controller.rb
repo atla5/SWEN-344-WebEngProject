@@ -47,8 +47,8 @@ class SessionsController < ApplicationController
 
       @current = OpenWeather::Current.geocode(lat, long, { units: "imperial", APPID: "106fc5306b995d8409aa88eb9cc548d4" })
       yahoo_client = YahooFinance::Client.new
-      ycl = yahoo_client.quotes(['AAPL','MSFT','JPC', 'TWTR', 'LUV', 'FB', 'AMZN', 'TSLA', 'NFLX', 'YHOO'], 
-        [:name, :ask, :bid, :high, :low, :change, :symbol, :last_trade_date, :country]);
+      ycl = yahoo_client.quotes(['AAPL','MSFT','JPC', 'TWTR', 'LUV', 'FB', 'AMZN', 'TSLA', 'NFLX', 'INTC', 'YHOO', 'PYPL', 'NVDA'], 
+        [:name, :ask, :bid, :high, :low, :change, :symbol, :last_trade_date]);
       @stocks = ycl
     else
       redirect_to failure_path
