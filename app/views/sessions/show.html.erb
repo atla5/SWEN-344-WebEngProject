@@ -71,14 +71,14 @@
                 <div id="<%= s.symbol %>" class="panel-collapse collapse in">
                   <div class="panel-body">
                     <b><%= s.name %> (<%= s.symbol %>)</b> <br />
-                    Value: <%= s.ask %> 
+                    <u>Value</u>: <%= s.ask %> 
                 
                     <% red = "ff0000" %>
                     <% green = "00ff00" %>
                     <% color = ( (s.change).include? "-") ? red : green %>
                     (<font color=<%= color %>>  <%= s.change %> </font>) 
                 
-                    <br><b>High:</b> <%=s.high %> <b>Low:</b> <%= s.low %> <b>End:</b> <%= s.bid %> <br />
+                    <br><u>High:</u> <%=s.high %> <u>Low:</u> <%= s.low %> <u>End:</u> <%= s.bid %> <br />
                   </div>
                 </div>
               </div>
