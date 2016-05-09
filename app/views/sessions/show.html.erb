@@ -1,5 +1,5 @@
 <div class = "container-fluid">
-  <div class="row">
+  <div class="row" style="background-color: #f3F3f3;">
     <div class="col-xs-12">
       <div style="float: left; width: 100%;">
         <div style="display: block; clear: left;">
@@ -8,7 +8,7 @@
             <span style="font-size: 20px; font-weight: bold"> <%= @current["name"] %>:  </span> 
           </div>
           <div style="float: left;">
-            <div style="display: block; clear: left; font-size: medium; padding: 0pt 3pt;" title="Current Temperature">
+            <div style="display: block; clear: left; font-size: medium;" title="weather_detail">
               <p>
                 <b>Temperature:</b> <%= @current["main"]["temp"] %>°F | 
                 <b>Low:</b> <%= @current["main"]["temp_min"] %>°F | 
