@@ -5,13 +5,12 @@
           <div style="display: block; clear: left;">
             <div style="float: left;" title="Title">
               <img style="border: medium none; width: 45px; height: 45px;  background: url(&quot;http://openweathermap.org/img/w/<%= @current["weather"][0]["icon"].to_s %>.png&quot;) repeat scroll 0% 0% transparent;" alt="title" src="http://openweathermap.org/images/transparent.png" height="35" width="35">
+              <span style="font-size: 20px; font-weight: bold"> <%= @current["name"] %>:  </span> 
             </div>
             <div style="float: left;">
               <div style="display: block; clear: left; font-size: medium; padding: 0pt 3pt;" title="Current Temperature">
-               <div style="display: block; clear: left; font-size: medium; padding: 0pt 3pt;" title="Current Temperature">
                 <p>
-                  <span style="font-size: 20px; font-weight: bold"> <%= @current["name"] %>:  </span> 
-                  <span style="display: inline-block; vertical-align: middle; line-height: normal;">
+                  <span style="display: inline-block; vertical-align: bottom; line-height: normal;">
                     <b>Temperature:</b> <%= @current["main"]["temp"] %>°F | 
                     <b>Low:</b> <%= @current["main"]["temp_min"] %>°F | 
                     <b>High:</b> <%= @current["main"]["temp_max"] %>°F |
@@ -21,7 +20,6 @@
                     <b>Pressure:</b> <%= @current["main"]["pressure"] %> hpa
                   </span>
                 </p>
-              </div>
               </div>
           </div>
         </div>
@@ -60,13 +58,15 @@
     </div>
       <div class="col-md-9">
       <h2>Top Stocks</h2>
-        <p2> <br> <br>
+        <p2> 
+          <b>Search for Individual Stock (by Id): </b>
           <%= form_tag(:action => "stock_detail", :controller=>"stock", method: "post") do %>
             <%= text_field_tag(name="ticker",content=nil, options = {size: "20x1", maxlength: 25, placeholder: "Enter Ticker Symbol"}) %>
-            <br>
             <%= submit_tag("Search") %>
           <% end %> 
         </p2>
+        
+        <br> <br>
       
         <p1>
           <div class="panel-group" id="accordion">
