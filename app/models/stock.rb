@@ -3,7 +3,7 @@ class Stock < ActiveRecord::Base
     
     belongs_to :user
     
-    validates_numericality_of :numShares
-    validates_presence_of :stockId
+    validates_numericality_of :numShares    #integer
+    validates_presence_of :stockId          #string
     
 end

@@ -14,10 +14,10 @@ class User < ActiveRecord::Base
     
     
     #stocks
-    has_many :transactions
-    has_many :stocks_owned
-    has_many :stocks_following
-    has_one  :balance 
+    has_many :transactions      #list of transactions
+    has_many :stocks_owned      #list of stocks
+    has_many :stocks_following  #list of strings :string :array = true
+    has_one  :balance           #integer
     
     
     ## -- accessors -- ## 
@@ -170,6 +170,11 @@ class User < ActiveRecord::Base
             stocks_owned.push(new_stock)
         end
        
+    end
+    
+    def reset_stocks
+       this.balance = 100000;
+
     end
     
 end

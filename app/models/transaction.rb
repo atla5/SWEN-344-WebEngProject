@@ -2,14 +2,14 @@ class Transaction < ActiveRecord::Base
     attr_accessible :transaction_date, :transaction_note, :stock_price, :stock_id, :num_shares, :getTransactionAmount;
     
     #general attributes
-    belongs_to :user
-    :transaction_note
-    :transaction_date
+    belongs_to :user                        #user
+    :transaction_note                       #text
+    :transaction_date                       #datetime
     
     # - methods - #
-    validates_presence_of:stock_id
-    validates_presence_of:stock_price
-    validates_numericality_of:num_shares
+    validates_presence_of:stock_id          #string
+    validates_presence_of:stock_price       #decimal
+    validates_numericality_of:num_shares    #integer
     
     #return the price of the transaction (number of shares * price per share)
     def getTransactionAmount
