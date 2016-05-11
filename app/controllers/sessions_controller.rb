@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
         tweet_count: 0,
         follower_count: client.user.followers_count,
         auto_tweet: false)
-      u.save!
+      u.save
     else
       user.follower_count = client.user.followers_count
       user.tweet_count = client.user.tweets_count
