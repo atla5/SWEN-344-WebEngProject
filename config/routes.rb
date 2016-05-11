@@ -6,6 +6,11 @@ Rails.application.routes.draw do
   resources :widgets
   
   ## -- STOCKS -- ##
+  
+  #stock page
+  get '/my_stocks', to: 'stock#stocks_list'
+  
+  #stock detail
   get '/stocks', to: 'stock#stock_detail', as: 'stock_detail'
   post '/stocks', to: 'stock#stock_detail', as: 'ticker'
   
