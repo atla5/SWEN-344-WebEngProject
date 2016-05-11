@@ -21,6 +21,12 @@ class StockController < ApplicationController
         end
     end
     
+    def stocks
+        if ! (session['access_token'] && session['access_token_secret'])
+            redirect_to failure_path
+        end
+    end
+    
 
 
 end

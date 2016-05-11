@@ -62,7 +62,8 @@ class SessionsController < ApplicationController
   def writetweet
     if session['access_token'] && session['access_token_secret']
       @tweet = params[:tweet]
-      user = User.where(handle: client.user.screen_name).take
+      sess = Session.first
+      user = User.where(handle: sess.user).take
       user.tweet_count = client.user.tweets_count
       user.save
       client.update(@tweet)
@@ -74,7 +75,8 @@ class SessionsController < ApplicationController
   
   def update_settings
     if session['access_token'] && session['access_token_secret']
-      user = User.where(handle: client.user.screen_name).take
+      sess = Session.first
+      user = User.where(handle: sess.user).take
       user.zip = params[:zipcode]
       if params[:autotweet] == '1'
         user.auto_tweet = true
@@ -95,6 +97,7 @@ class SessionsController < ApplicationController
   
   def destroy
     if session['access_token'] && session['access_token_secret']
+      sess = Session.first
       user = User.where(handle: client.user.screen_name).take
       if user.auto_tweet
         client.update(client.user.name + " logged out of Twitter Stocks")
