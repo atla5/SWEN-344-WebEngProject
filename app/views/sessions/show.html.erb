@@ -7,6 +7,7 @@
             <img style="border: medium none; width: 45px; height: 45px;  background: url(&quot;http://openweathermap.org/img/w/<%= @current["weather"][0]["icon"].to_s %>.png&quot;) repeat scroll 0% 0% transparent;" alt="title" src="http://openweathermap.org/images/transparent.png" height="35" width="35">
             <span style="font-size: 20px; font-weight: bold"> <%= @current["name"] %>:  </span> 
           </div>
+          <br>
           <div style="float: left;">
             <div style="display: block; clear: left; font-size: medium; vertical-align: bottom;" title="weather_detail">
               <p>
@@ -54,7 +55,7 @@
         </div>
       <% end %>
     </div>
-      <div class="col-md-9">
+      <div class="col-md-9" id="Top Stocks">
       <h2>Top Stocks</h2>
         <p2> 
           <b>Search for Individual Stock (by symbol): </b>
