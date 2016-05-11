@@ -4,7 +4,9 @@
 
       <!-- favorite button -->
       <button id="btnStar" type="button" class="btn btn-secondary btn-lrg" >
-        <% star_glyph = @user.stocks_following.include?(@stock.symbol)? "glyphicon-star" : "glyphicon-star-empty" %>
+        <% star_glyph = #@user.stocks_following.include?(@stock.symbol)? 
+        "glyphicon-star"
+        #: "glyphicon-star-empty" %>
         <span class="glyphicon <%= star_glyph %> gi-15x"></span>
       </button>
       
@@ -50,9 +52,7 @@
   
   
 <!--notes on the stock--> 
-<div id="stock_notes" >
-    
-</div>
+<div id="stock_notes"></div>
 
   
 <!-- personalized stock notes -->
