@@ -26,27 +26,8 @@ class StockController < ApplicationController
     # - method - #
     #add a given stock id to the list of stocks the @user is following
     def follow_stock
-        @stock_id = params[:stockId]
-        @user.stocks_following.push(@stock_id)
-        @user.save!
-    end
-    
-    # - method - #
-    #create a transaction with a given number of shares (numShares) of a stock 
-    # with a given id (stockSymbol) 
-    def createTransaction(stockSymbol, numShares, stockPrice, note="")
-        
-        #create a transaction with a given number of shares and a stock symbol 
-        t = Transaction.new;
-        t.transaction_date = DateTime.current;
-        t.stock_id = stock_id;
-        t.stock_price = stock_price;
-        t.num_shares = num_shares;
-        if( !note.empty? )
-            t.transaction_note = note;oe
-        end
-        
-        return t;
+        stock_id = params[:stockId]
+        @user.addFollowing(stock_id);
     end
     
     # - method - #
@@ -95,6 +76,25 @@ class StockController < ApplicationController
         else
             return "Unable to sell " + strNumSharesOf;
         end
+    end
+
+    ## - helpers - ##
+    
+        
+    # - method - #
+    #create a transaction with a given number of shares (numShares) of a stock 
+    # with a given id (stockSymbol) 
+    def createTransaction(stockSymbol, numShares, stockPrice, note="")
+        
+        #create a transaction with a given number of shares and a stock symbol 
+        t = Transaction.new;
+        t.transaction_date = DateTime.current;
+        t.stock_id = stock_id;
+        t.stock_price = stock_price;
+        t.num_shares = num_shares;
+        t.transaction_note = note;
+
+        return t;
     end
 
 end

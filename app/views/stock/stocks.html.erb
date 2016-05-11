@@ -1,5 +1,3 @@
-<% @pretend_following = ['AAPL','MSFT','JPC', 'TWTR', 'LUV', 'FB', 'AMZN', 'TSLA', 'NFLX']%>
-
 <div id="title" class="container">
   <div id="my_stocks_banner" class="jumbotron text-center">
     <h1> Stock Portfolio </h1>
@@ -24,8 +22,12 @@
   <div class="row text-center">
     <span style="font-size: 25px">Stocks Following:</span>
     
+    <% followedStocks = @user.get_following %>
+    <% ownedStocks = @user.get_owned %>
+    
     <div id="stocksFollowing">
-        <% for stock in @user.stocks_following %>
+        <% for stock in followedStocks %>
+        <% s = yahoo_client.quotes([stock][:name, :ask, :bid, :high, :low, :change, :symbol, :last_trade_date]));
           <div class="panel panel-default">
             <div class="panel-heading">
               <h4 class="panel-title">
@@ -43,6 +45,9 @@
                 (<font color=<%= color %>>  <%= s.change %> </font>) 
             
                 <br><u>High</u>: <%=s.high %> <u>Low</u>: <%= s.low %> <u>End</u>: <%= s.bid %> <br />
+                
+                <br>
+                <% if(ownedStocks.include(s.))
               </div>
             </div>
           </div>
@@ -62,7 +67,7 @@
       <div class="panel-body">
         <ul id="lstTransactions" class="list-group">
           <!-- <li class="list-group-item"> #{TRANSACTION}.toString </li> -->
-          <% for t in @user.transactions %>
+          <% for t in @user.get_transactions %>
             <li class="list-group-item"> <%= t.toString %> </li>
           <% end %>
         </ul>
