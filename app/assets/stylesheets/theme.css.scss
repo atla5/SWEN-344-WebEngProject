@@ -1,6 +1,10 @@
 $brand-primary: #532F8C;
 $brand-language: #B01302;
 
+$red = #FF0000;
+$green = #00FF00;
+$white = #FFFFFF;
+
 .jumbotron {
   background: $brand-primary;
   color: white;
@@ -12,6 +16,26 @@ $brand-language: #B01302;
     &:hover {
       background: lighten($brand-primary, 15%);
     }
+  }
+  
+  .btn-star{
+    background: $white;
+    border-color: $white;
+  }
+  
+  .btn-buy{
+    background: $white;
+    border-color: $red;
+  }
+  
+  .btn-sell{
+    background: $white;
+    border-color: $green;
+  }
+  
+  .stock_name_display{
+    font-size: 25px; 
+    font-weight: bold;
   }
 
   p {
