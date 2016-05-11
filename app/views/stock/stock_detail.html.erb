@@ -11,7 +11,7 @@
       </button>
       
       <!-- stock name -->
-      <span id="stock_name_display" class="well well-sm" style="font-size: 35px; font-weight: bold"> 
+      <span id="stock_name_display" style="font-size: 25px; font-weight: bold"> 
         <%= @singleStock.symbol %>
       </span> 
       
@@ -24,7 +24,7 @@
   </div>
 </div>
 
-<div id="stock_graph" class="row" >
+<div id="stock_graph" class="row text-center" >
   <!-- graph of the given stock -->
   <img src="http://chart.finance.yahoo.com/z?s=<%=@singleStock.symbol%>&t=6m&q=l&l=on&z=s&p=m50,m200" >
 </div>
