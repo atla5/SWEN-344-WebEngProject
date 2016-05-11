@@ -63,3 +63,44 @@
   
 <!--notes on the stock--> 
 <div id="stock_notes"></div>
+
+
+<!-- personalized stock notes -->
+<div id="stock_transaction_history" class="container">
+  <div class="row text-center">
+  
+    <!--single line display for shares owned ( SharesOwned: ## )-->
+    <div id="lblSharesOwned"></div>
+    
+    <!--panel display for associated transactions -->
+    <div id="pnlTransactions" class="panel panel-default">
+      <div id="pnlTransactionsHeader" class="panel-heading"></div>
+      <div class="panel-body">
+        <ul id="lstTransactions" class="list-group">
+          <!-- <li class="list-group-item"> #{TRANSACTION}.toString </li> -->
+        </ul>
+      </div>
+    </div>
+    
+    
+    <!-- get stocks owned by the user -->
+    <% numSharesOwned = @user.num_shares_of_stock(@singleStock.symbol) %>
+    
+    <!-- if the user owns any of that stock, show number of shares -->
+    <% if(numSharesOwned !=0) %>
+    
+      <!-- populate #lblSharesOwned-->
+      <%   <h4>Shares Owned:</h4> numSharesOwned %>
+      
+      <!-- populate #pnlTransactionsHeader inside of panel-->
+      <%   %>
+      
+      <!-- populate #lstTransactions -->
+      <%   lsTransactions = @user.get_transactions(@singleStock.symbol) %>
+      <%   for t in lsTransactions %>
+          <li class="list-group-item"> <%= t.toString %> </li>
+      <%   end %>
+    
+    <% end %>
+  </div>
+</div> <!-- end personalized stock notes -->
