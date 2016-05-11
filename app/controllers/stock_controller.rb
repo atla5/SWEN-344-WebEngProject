@@ -9,6 +9,12 @@ class StockController < ApplicationController
         
     end
     
+    def stocks 
+        if ! (session['access_token'] && session['access_token_secret'])
+            redirect_to failure_path
+        end
+    end
+    
     def stock_detail
         ticker = :ticker
         if(ticker != nil)
