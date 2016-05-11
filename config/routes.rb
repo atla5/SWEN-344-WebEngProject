@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   ## -- STOCKS -- ##
   get '/stocks', to: 'stock#stock_detail', as: 'stock_detail'
   post '/stocks', to: 'stock#stock_detail', as: 'ticker'
-  get '/mystocks', to: 'stock#stocks', as: 'mystock'
+  get '/mystocks', to: 'stock#stocks', as: 'mystocks'
   
   ## -- CALENDAR --##
   get '/calendar', to: 'calendar#calendar', as: 'calendar'
