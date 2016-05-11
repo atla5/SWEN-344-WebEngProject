@@ -1,51 +1,39 @@
 <div id="stock_header" class="container">
-  <div class="row text-center">
+  <div class="row">
+    <div class="text-center">
 
       <!-- favorite button -->
-      <button id="btnStar" type="button" class="btn-secondary btn-md btn-star">
+      <button id="btnStar" type="button" class="btn btn-secondary btn-lrg" >
         <% star_glyph = #@user.stocks_following.include?(@stock.symbol)? 
-        #"glyphicon-star" :
-        "glyphicon-star-empty" %>
+        "glyphicon-star"
+        #: "glyphicon-star-empty" %>
         <span class="glyphicon <%= star_glyph %> gi-15x"></span>
       </button>
-
+      
       <!-- stock name -->
-      <span id="stockNameDisplay" class="stock_name_display"> 
-        <%= @singleStock.name %> (<%= @singleStock.symbol %>)
+      <span id="stock_name_display" style="font-size: 25px; font-weight: bold"> 
+        <%= @singleStock.symbol %>
       </span> 
       
+      <!-- buy button -->
+      <button id="btnBuy" class="btn btn-secondary">Buy</button>
+      
+      <!-- sell button -->
+      <button id="btnSell" class="btn btn-secondary">Sell</button>
+    </div>
   </div>
-</div> <!-- end stock header -->
+</div>
 
-
-<div id="stock_graph" class="container" >
-  <div class="row text-center">
-    <img id="imgStockGraph" src="http://chart.finance.yahoo.com/z?s=<%=@singleStock.symbol%>&t=6m&q=l&l=on&z=s&p=m50,m200" >
-  </div>
-</div><!-- end stock_graph-->
-
-
-<div id="buy_sell" class="container">
-  <div class="row text-center">
-    
-    <!-- form for num shares -->
-    <form id="frmBuySell" accept-charset="UTF-8" action="/transact" method="get"> 
-      <span style="font-size: 22px; font-weight: bold" >Number of Shares:</b></span>
-      <input id="numShares" name="numShares" type="number" min="1" step="1" value="5">
-      <input id="btnBuy"  name="btnBuy" value="buy" type="submit" class="btn btn-secondary btn-buy">Buy</input>
-      <input id="btnSell" name="btnSell" value="sell" type="submit" class="btn btn-secondary btn-sell">Sell</input>
-      <input type="hidden" name="stockSymbol" value="<%= @singleStock.symbol %>" >
-      <input type="hidden" name="stockPrice" value="<%= @singleStock.ask %>" >
-    </form>
-    
-  </div>
-</div> <!-- end buy_sell -->
+<div id="stock_graph" class="row text-center" >
+  <!-- graph of the given stock -->
+  <img src="http://chart.finance.yahoo.com/z?s=<%=@singleStock.symbol%>&t=6m&q=l&l=on&z=s&p=m50,m200" >
+</div>
   
 <!--detailed table -->
-<div id="stock_info" class="container" style="width: 60%">
-  <div class="row" "text-center">
+<div id="stock_info" class="container" style="width: 80%">
+  <div class="row">
     <table id="tblStockInfo" class="table table-hover" > 
-
+      
       <tr> <td>Current Price</td> <td><%= @singleStock.ask %></td> </tr>
       
       <tr> <td>Change</td> <td><%= @singleStock.change_and_percent_change%></td> </tr>
@@ -60,49 +48,25 @@
       
     </table>
   </div>
-</div> <!-- end stock_info-->
+</div>
   
   
 <!--notes on the stock--> 
 <div id="stock_notes"></div>
 
-
-<!-- personalized stock notes -->
-<div id="stock_transaction_history" class="container">
-  <div class="row text-center">
   
-    <!--single line display for shares owned ( SharesOwned: ## )-->
-    <div id="lblSharesOwned"></div>
+<!-- personalized stock notes -->
+<div id="stock_transaction_history">
     
-    <!--panel display for associated transactions -->
-    <div id="pnlTransactions" class="panel panel-default">
-      <div id="pnlTransactionsHeader" class="panel-heading"></div>
-      <div class="panel-body">
-        <ul id="lstTransactions" class="list-group">
-          <!-- <li class="list-group-item"> #{TRANSACTION}.toString </li> -->
-        </ul>
-      </div>
-    </div>
+    <!--Shares Owned
+    <h4>Shares Owned: </h4>
+    -->
     
-    
-    <!-- get stocks owned by the user -->
-    <% numSharesOwned = @user.num_shares_of_stock(@singleStock.symbol) %>
-    
-    <!-- if the user owns any of that stock, show number of shares -->
-    <% if(numSharesOwned !=0) %>
-    
-      <!-- populate #lblSharesOwned-->
-      <h4>Shares Owned:</h4> <% numSharesOwned %>
-      
-      <!-- populate #pnlTransactionsHeader inside of panel-->
-      <%   %>
-      
-      <!-- populate #lstTransactions -->
-      <%   lsTransactions = @user.get_transactions(@singleStock.symbol) %>
-      <%   for t in lsTransactions %>
-          <li class="list-group-item"> <%= t.toString %> </li>
-      <%   end %>
-    
-    <% end %>
-  </div>
-</div> <!-- end personalized stock notes -->
+    <!--Earnings 
+    <h4>Earnings: </h4>
+    -->
+
+    <!--List of transactions
+    <h4>Transactions: </h4>
+    -->
+</div>

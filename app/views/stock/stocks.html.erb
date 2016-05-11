@@ -1,78 +1,12 @@
-<div id="title" class="container">
-  <div id="my_stocks_banner" class="jumbotron text-center">
-    <h1> Stock Portfolio </h1>
-    <p style="color: black;">
-      Use this page to keep track of your current balance, the stocks own/follow, 
-      	and your past transactions.
-    </p>
-  </div>
-</div> <!-- end title -->
-
-
-<div id="current_balance" class="container">
-  <div class="row text-center">
-    <span style="font-size: 30px; font-weight: bold;">Current Balance: </span>
-    <span id="currentBalance" style="font-size: 30px;">$<%= @user.balance %></span>
-  </div>
-</div> <!-- end current_balance -->
-
-
-<!-- display a panel for each stock user is following -->
-<div id="stocks_following" class="container">
-  <div class="row text-center">
-    <span style="font-size: 25px">Stocks Following:</span>
+<html>
     
-    <% followedStocks = @user.get_following %>
-    <% ownedStocks = @user.get_owned %>
+    <% stocks_list.each do |stock| %>
+        ---------------
+        ID: <%= @stock.symbol %>
+        Name: <%= @stock.name %>
+        Current Price: <%= @stock.ask %>
+        Change: <%= @stock.change_and_percent_change %>
+        ---------------
+    <% end %>
     
-    <div id="stocksFollowing">
-        <% for stock in followedStocks %>
-        <% s = yahoo_client.quotes([stock][:name, :ask, :bid, :high, :low, :change, :symbol, :last_trade_date]));
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title">
-                <a data-toggle="collapse" href="#<%= s.symbol %>"><%= s.name %></a>
-              </h4>
-            </div>
-            <div id="<%= s.symbol %>" class="panel-collapse collapse in">
-              <div class="panel-body">
-                <b><%= s.name %> (<%= s.symbol %>)</b> <br />
-                <u>Value</u>: <%= s.ask %> 
-            
-                <% red = "ff0000" %>
-                <% green = "00ff00" %>
-                <% color = ( (s.change).include? "-") ? red : green %>
-                (<font color=<%= color %>>  <%= s.change %> </font>) 
-            
-                <br><u>High</u>: <%=s.high %> <u>Low</u>: <%= s.low %> <u>End</u>: <%= s.bid %> <br />
-                
-                <br>
-                <% if(ownedStocks.include(s.))
-              </div>
-            </div>
-          </div>
-        <% end %>
-    </div>
-  </div>
-</div>
-
-<!-- list out user's entire transaction history -->
-<div id="transaction_history" class="container" style="width: 70%">
-  <div class="row text-center">
-    
-    <span style="font-size: 25px">Transaction History:</span>
-    
-    <!--panel display for associated transactions -->
-    <div id="pnlTransactions" class="panel panel-default">
-      <div class="panel-body">
-        <ul id="lstTransactions" class="list-group">
-          <!-- <li class="list-group-item"> #{TRANSACTION}.toString </li> -->
-          <% for t in @user.get_transactions %>
-            <li class="list-group-item"> <%= t.toString %> </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-  
-  </div>
-</div> <!-- end transaction_history -->
+</html>
