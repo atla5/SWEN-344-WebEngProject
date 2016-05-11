@@ -29,11 +29,13 @@
   <div class="row text-center">
     
     <!-- form for num shares -->
-    <form id="frmBuySell"> 
+    <form id="frmBuySell" accept-charset="UTF-8" action="/transact" method="get"> 
       <span style="font-size: 22px; font-weight: bold" >Number of Shares:</b></span>
-      <input id="numShares" type="number" name="inpNumShares" min="1" step="1" value="5">
-      <button id="btnBuy" class="btn btn-secondary btn-buy">Buy</button>
-      <button id="btnSell" class="btn btn-secondary btn-sell">Sell</button>
+      <input id="numShares" name="numShares" type="number" min="1" step="1" value="5">
+      <input id="btnBuy"  name="btnBuy" value="buy" type="submit" class="btn btn-secondary btn-buy">Buy</input>
+      <input id="btnSell" name="btnSell" value="sell" type="submit" class="btn btn-secondary btn-sell">Sell</input>
+      <input type="hidden" name="stockSymbol" value="<%= @singleStock.symbol %>" >
+      <input type="hidden" name="stockPrice" value="<%= @singleStock.ask %>" >
     </form>
     
   </div>

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   
   #stock detail
   get '/stocks', to: 'stocks#stock_detail', as: 'stock_detail'
+  get '/transact', to: 'stock#transact', as: 'transact'
   post '/stocks', to: 'stock#stock_detail', as: 'ticker'
   
   ## -- CALENDAR --##
