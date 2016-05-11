@@ -4,12 +4,14 @@
 
       <!-- favorite button -->
       <button id="btnStar" type="button" class="btn btn-secondary btn-lrg" >
-        <% star_glyph = @user.stocks_following.include?(@stock.symbol)? "glyphicon-star" : "glyphicon-star-empty" %>
+        <% star_glyph = #@user.stocks_following.include?(@stock.symbol)? 
+        "glyphicon-star"
+        #: "glyphicon-star-empty" %>
         <span class="glyphicon <%= star_glyph %> gi-15x"></span>
       </button>
       
       <!-- stock name -->
-      <span id="stock_name_display" class="well well-sm" style="font-size: 35px; font-weight: bold"> 
+      <span id="stock_name_display" style="font-size: 25px; font-weight: bold"> 
         <%= @singleStock.symbol %>
       </span> 
       
@@ -22,7 +24,7 @@
   </div>
 </div>
 
-<div id="stock_graph" class="row" >
+<div id="stock_graph" class="row text-center" >
   <!-- graph of the given stock -->
   <img src="http://chart.finance.yahoo.com/z?s=<%=@singleStock.symbol%>&t=6m&q=l&l=on&z=s&p=m50,m200" >
 </div>
@@ -50,12 +52,7 @@
   
   
 <!--notes on the stock--> 
-<div id="stock_notes" >
-  <% if( !@singleStock.notes.blank?) 
-    puts "<h3>Notes:</h3>"
-    puts "<p> @singleStock.notes %></p>"
-    %>
-</div>
+<div id="stock_notes"></div>
 
   
 <!-- personalized stock notes -->
